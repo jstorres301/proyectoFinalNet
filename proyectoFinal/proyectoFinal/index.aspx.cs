@@ -49,7 +49,14 @@ namespace proyectoFinal
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("registrarUsuario.aspx",false);
+            try
+            {
+                Response.Redirect("registrarUsuario.aspx", false);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }
