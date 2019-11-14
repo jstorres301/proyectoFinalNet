@@ -67,12 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="consultarUsuarios.aspx" />
+    <Content Include="img\eliminar.png" />
+    <Content Include="img\icono.png" />
     <Content Include="index.aspx" />
     <Content Include="menuAdministrador.aspx" />
     <Content Include="registrarUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="consultarUsuarios.aspx.cs">
+      <DependentUpon>consultarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultarUsuarios.aspx.designer.cs">
+      <DependentUpon>consultarUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

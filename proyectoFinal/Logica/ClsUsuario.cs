@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Web.UI.WebControls;
 
 namespace Logica
 {
@@ -68,10 +70,12 @@ namespace Logica
             return consulta;
         }
 
-        public List<usuario> consultar()
+        public void consultar(ref GridView gdvTabla)
         {
+            
             var consulta = (from usua in db.usuario select usua).ToList();
-            return consulta;
+            gdvTabla.DataSource = consulta;
+            gdvTabla.DataBind();
         }
 
         public string eliminarUsuario(int cedula)
@@ -81,6 +85,7 @@ namespace Logica
             {
                 var consulta = (from usua in db.usuario where usua.numero_cedula == cedula select usua).FirstOrDefault();
                 db.usuario.DeleteOnSubmit(consulta);
+                db.SubmitChanges();
                 mensaje = "Se elimino el usuario";
             }
             catch (Exception ex)
