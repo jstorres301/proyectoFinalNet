@@ -14,7 +14,9 @@
 
         <asp:Login ID="Login" runat="server" Height="225px" Width="379px" OnAuthenticate="Login_Authenticate">
         </asp:Login>
+
         <asp:Button ID="btnRegistrarse" CssClass="pure-button" runat="server" OnClick="Button1_Click" Text="Registrarse" />
+
     </form>
 
 </body>
