@@ -67,15 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="consultarCentro.aspx" />
     <Content Include="consultarUsuarios.aspx" />
     <Content Include="img\eliminar.png" />
     <Content Include="img\icono.png" />
     <Content Include="index.aspx" />
     <Content Include="menuAdministrador.aspx" />
+    <Content Include="menuUsuario.aspx" />
     <Content Include="registrarUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="consultarCentro.aspx.cs">
+      <DependentUpon>consultarCentro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultarCentro.aspx.designer.cs">
+      <DependentUpon>consultarCentro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="consultarUsuarios.aspx.cs">
       <DependentUpon>consultarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +105,13 @@
     </Compile>
     <Compile Include="menuAdministrador.aspx.designer.cs">
       <DependentUpon>menuAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="menuUsuario.aspx.cs">
+      <DependentUpon>menuUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menuUsuario.aspx.designer.cs">
+      <DependentUpon>menuUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registrarUsuario.aspx.cs">
