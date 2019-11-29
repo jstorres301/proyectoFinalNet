@@ -67,28 +67,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="consultarCentrosMedicos.aspx" />
-
     <Content Include="consultarCentro.aspx" />
-
     <Content Include="consultarUsuarios.aspx" />
     <Content Include="img\eliminar.png" />
     <Content Include="img\icono.png" />
     <Content Include="index.aspx" />
     <Content Include="menuAdministrador.aspx" />
-
     <Content Include="menuEps.aspx" />
     <Content Include="registrarCentroMedico.aspx" />
     <Content Include="registrarInformacion.aspx" />
-
     <Content Include="menuUsuario.aspx" />
-
     <Content Include="registrarUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="consultarCentrosMedicos.aspx.cs">
       <DependentUpon>consultarCentrosMedicos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,7 +95,6 @@
     </Compile>
     <Compile Include="consultarCentro.aspx.designer.cs">
       <DependentUpon>consultarCentro.aspx</DependentUpon>
-
     </Compile>
     <Compile Include="consultarUsuarios.aspx.cs">
       <DependentUpon>consultarUsuarios.aspx</DependentUpon>
