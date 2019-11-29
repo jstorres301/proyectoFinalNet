@@ -88,7 +88,8 @@
     </Compile>
     <Compile Include="consultarCentrosMedicos.aspx.designer.cs">
       <DependentUpon>consultarCentrosMedicos.aspx</DependentUpon>
-
+    <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="consultarCentro.aspx.cs">
       <DependentUpon>consultarCentro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
