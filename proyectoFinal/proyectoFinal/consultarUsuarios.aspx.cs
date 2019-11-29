@@ -64,5 +64,10 @@ namespace proyectoFinal
         {
             //nuevo
         }
+
+        protected void gdvTablaUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

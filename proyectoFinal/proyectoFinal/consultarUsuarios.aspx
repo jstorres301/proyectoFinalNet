@@ -26,7 +26,7 @@
     <form id="form1" runat="server" class="pure-form">
 
         <asp:Panel ID="panelConsultar" runat="server">
-            <asp:GridView ID="gdvTablaUsuarios" runat="server" AutoGenerateColumns="False" Height="132px" Width="712px" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gdvTablaUsuarios_RowCommand">
+            <asp:GridView ID="gdvTablaUsuarios" runat="server" AutoGenerateColumns="False" Height="132px" Width="712px" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gdvTablaUsuarios_RowCommand" OnSelectedIndexChanged="gdvTablaUsuarios_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="numero_cedula" HeaderText="Numero de documento" />
