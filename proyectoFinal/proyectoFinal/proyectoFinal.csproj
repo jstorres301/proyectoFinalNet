@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -79,6 +80,7 @@
     <Content Include="registrarInformacion.aspx" />
     <Content Include="menuUsuario.aspx" />
     <Content Include="registrarUsuario.aspx" />
+    <Content Include="Reportes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +90,7 @@
     </Compile>
     <Compile Include="consultarCentrosMedicos.aspx.designer.cs">
       <DependentUpon>consultarCentrosMedicos.aspx</DependentUpon>
-    <SubType>ASPXCodeBehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="consultarCentro.aspx.cs">
       <DependentUpon>consultarCentro.aspx</DependentUpon>
@@ -153,6 +155,13 @@
     </Compile>
     <Compile Include="registrarUsuario.aspx.designer.cs">
       <DependentUpon>registrarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

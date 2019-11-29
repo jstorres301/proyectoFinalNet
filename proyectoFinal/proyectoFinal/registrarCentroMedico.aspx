@@ -14,7 +14,7 @@
         <br />
         <asp:TextBox ID="txtIdcentromedico" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="lblNombredelcentromedico" runat="server" Text="Nombre del centromedico"></asp:Label>
+        <asp:Label ID="lblNombreCentroMedico" runat="server" Text="Nombre del CentroMedico"></asp:Label>
         <br />
         <asp:TextBox ID="txtNombredelcentromedico" runat="server"></asp:TextBox>
         <br />

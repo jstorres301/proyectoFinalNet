@@ -42,13 +42,13 @@ namespace proyectoFinal
         protected global::System.Web.UI.WebControls.TextBox txtIdcentromedico;
 
         /// <summary>
-        /// Control lblNombredelcentromedico.
+        /// Control lblNombreCentroMedico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombredelcentromedico;
+        protected global::System.Web.UI.WebControls.Label lblNombreCentroMedico;
 
         /// <summary>
         /// Control txtNombredelcentromedico.

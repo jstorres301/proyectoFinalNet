@@ -104,11 +104,11 @@ namespace Logica
 			}
 		}
 		
-		public System.Data.Linq.Table<consulta> consulta
+		public System.Data.Linq.Table<consultas> consultas
 		{
 			get
 			{
-				return this.GetTable<consulta>();
+				return this.GetTable<consultas>();
 			}
 		}
 		
@@ -150,6 +150,13 @@ namespace Logica
 			{
 				return this.GetTable<usuario>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_consultar_cuantos_usuarios_consulta")]
+		public ISingleResult<sp_consultar_cuantos_usuarios_consultaResult> sp_consultar_cuantos_usuarios_consulta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaInicial, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaFinal)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaInicial, fechaFinal);
+			return ((ISingleResult<sp_consultar_cuantos_usuarios_consultaResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_login")]
@@ -423,7 +430,7 @@ namespace Logica
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_centro_medico", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_centro_medico", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id_centro_medico
 		{
 			get
@@ -659,20 +666,40 @@ namespace Logica
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.consulta")]
-	public partial class consulta
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.consultas")]
+	public partial class consultas
 	{
 		
-		private long _usuario_cedula;
+		private System.Nullable<int> _id_consulta;
 		
-		private int _centro_medico_id;
+		private System.Nullable<long> _usuario_cedula;
 		
-		public consulta()
+		private System.Nullable<int> _centro_medico_id;
+		
+		private System.Nullable<System.DateTime> _fecha;
+		
+		public consultas()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usuario_cedula", DbType="BigInt NOT NULL")]
-		public long usuario_cedula
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_consulta", DbType="Int")]
+		public System.Nullable<int> id_consulta
+		{
+			get
+			{
+				return this._id_consulta;
+			}
+			set
+			{
+				if ((this._id_consulta != value))
+				{
+					this._id_consulta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usuario_cedula", DbType="BigInt")]
+		public System.Nullable<long> usuario_cedula
 		{
 			get
 			{
@@ -687,8 +714,8 @@ namespace Logica
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_centro_medico_id", DbType="Int NOT NULL")]
-		public int centro_medico_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_centro_medico_id", DbType="Int")]
+		public System.Nullable<int> centro_medico_id
 		{
 			get
 			{
@@ -699,6 +726,22 @@ namespace Logica
 				if ((this._centro_medico_id != value))
 				{
 					this._centro_medico_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
 				}
 			}
 		}
@@ -1444,6 +1487,68 @@ namespace Logica
 		{
 			this.SendPropertyChanging();
 			entity.usuario = null;
+		}
+	}
+	
+	public partial class sp_consultar_cuantos_usuarios_consultaResult
+	{
+		
+		private System.Nullable<int> _numes;
+		
+		private string _mes;
+		
+		private System.Nullable<int> _cantidad;
+		
+		public sp_consultar_cuantos_usuarios_consultaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numes", DbType="Int")]
+		public System.Nullable<int> numes
+		{
+			get
+			{
+				return this._numes;
+			}
+			set
+			{
+				if ((this._numes != value))
+				{
+					this._numes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mes", DbType="NVarChar(30)")]
+		public string mes
+		{
+			get
+			{
+				return this._mes;
+			}
+			set
+			{
+				if ((this._mes != value))
+				{
+					this._mes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cantidad", DbType="Int")]
+		public System.Nullable<int> cantidad
+		{
+			get
+			{
+				return this._cantidad;
+			}
+			set
+			{
+				if ((this._cantidad != value))
+				{
+					this._cantidad = value;
+				}
+			}
 		}
 	}
 	

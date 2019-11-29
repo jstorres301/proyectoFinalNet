@@ -17,5 +17,21 @@ namespace Logica
             gdvTabla.DataSource = consulta;
             gdvTabla.DataBind();
         }
+
+        public string registrarCentroMedico(centro_medico cm)
+        {
+            string mensaje;
+            try
+            {
+                db.centro_medico.InsertOnSubmit(cm);
+                db.SubmitChanges();
+                mensaje = "Se ha registrado correctamente";
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al registrarse" + ex.Message;
+            }
+            return mensaje;
+        }
     }
 }

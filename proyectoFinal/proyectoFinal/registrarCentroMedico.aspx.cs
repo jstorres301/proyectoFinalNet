@@ -18,7 +18,7 @@ namespace proyectoFinal
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
 
-            ClsRegistrarCentroMedico CentroMedicoDAO = new ClsRegistrarCentroMedico();
+            ClsCentroMedico CentroMedicoDAO = new ClsCentroMedico();
             centro_medico registrarCentroMedicoDTO = new centro_medico();
             string mensaje;
             registrarCentroMedicoDTO.id_centro_medico = int.Parse(txtIdcentromedico.Text);
