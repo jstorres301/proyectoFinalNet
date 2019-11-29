@@ -44,7 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    
+    <Compile Include="ClsRegistrarCentroMedico.cs" />
+    <Compile Include="ClsregistrarInformacion.cs" />
     <Compile Include="ClsCentroMedico.cs" />
+
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="OrmHospitales.designer.cs">
       <AutoGen>True</AutoGen>
