@@ -74,6 +74,7 @@
     <Content Include="index.aspx" />
     <Content Include="menuAdministrador.aspx" />
     <Content Include="menuEps.aspx" />
+    <Content Include="registrarCentroMedico.aspx" />
     <Content Include="registrarInformacion.aspx" />
     <Content Include="registrarUsuario.aspx" />
     <Content Include="Web.config" />
@@ -114,6 +115,13 @@
     </Compile>
     <Compile Include="menuEps.aspx.designer.cs">
       <DependentUpon>menuEps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registrarCentroMedico.aspx.cs">
+      <DependentUpon>registrarCentroMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registrarCentroMedico.aspx.designer.cs">
+      <DependentUpon>registrarCentroMedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="registrarInformacion.aspx.cs">
       <DependentUpon>registrarInformacion.aspx</DependentUpon>
