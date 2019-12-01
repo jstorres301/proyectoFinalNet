@@ -21,10 +21,11 @@ namespace proyectoFinal
             ClsCentroMedico CentroMedicoDAO = new ClsCentroMedico();
             centro_medico registrarCentroMedicoDTO = new centro_medico();
             string mensaje;
-            registrarCentroMedicoDTO.id_centro_medico = int.Parse(txtIdcentromedico.Text);
-            registrarCentroMedicoDTO.nombre_centro_medico = txtNombredelcentromedico.Text;
+            registrarCentroMedicoDTO.id_centro_medico = 1;
+            registrarCentroMedicoDTO.nombre_centro_medico = txtNombre.Text;
             registrarCentroMedicoDTO.nivel_atencion = txtNivelatencion.Text;
             registrarCentroMedicoDTO.horarios = txtHorarios.Text;
+            registrarCentroMedicoDTO.direccion = txtDireccion.Text;
             registrarCentroMedicoDTO.foto = txtFoto.Text;
             mensaje = CentroMedicoDAO.registrarCentroMedico(registrarCentroMedicoDTO);
             btnRegistrar.Text = mensaje;

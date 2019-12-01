@@ -10,22 +10,31 @@
 <body>
    
         <form id="form2" runat="server">
-        <asp:Label ID="lblIdcentromedico" runat="server" Text="Id Centro Medico"></asp:Label>
+        <!--<asp:Label ID="lblIdcentromedico" runat="server" Text="Id Centro Medico"></asp:Label>
         <br />
         <asp:TextBox ID="txtIdcentromedico" runat="server"></asp:TextBox>
-        <br />
+        <br /> -->
+
         <asp:Label ID="lblNombreCentroMedico" runat="server" Text="Nombre del CentroMedico"></asp:Label>
         <br />
-        <asp:TextBox ID="txtNombredelcentromedico" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
         <br />
+
         <asp:Label ID="lblNivelatencion" runat="server" Text="Nivel de atencion"></asp:Label>
         <br />
         <asp:TextBox ID="txtNivelatencion" runat="server"></asp:TextBox>
         <br />
+
         <asp:Label ID="lblHorarios" runat="server" Text="Horarios"></asp:Label>
         <br />
         <asp:TextBox ID="txtHorarios" runat="server"></asp:TextBox>
         <br />
+
+        <asp:Label ID="Label1" runat="server" Text="Direccion"></asp:Label>
+        <br />
+        <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+        <br />
+
         <asp:Label ID="lblFoto" runat="server" Text="Foto"></asp:Label>
         <br />
         <asp:TextBox ID="txtFoto" runat="server"></asp:TextBox>
