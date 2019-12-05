@@ -15,13 +15,50 @@ namespace proyectoFinal
 
         }
 
-        protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
+        //protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
+        //{
+        //    ClsUsuario usuarioDao = new ClsUsuario();
+        //    usuario usuarioLogin = new usuario();
+        //    string nombre = Login.UserName;
+        //    string contrasena = Login.Password;
+        //    usuarioLogin = usuarioDao.login(nombre,contrasena);
+        //    if (usuarioLogin.numero_cedula != null)
+        //    {
+        //        Session["cedulaLogin"] = usuarioLogin.numero_cedula;
+        //        Session["nombreLogin"] = usuarioLogin.nombres + usuarioLogin.primer_apellido + usuarioLogin.segundo_apellido;
+        //        Session["rolLogin"] = usuarioLogin.rol;
+        //        if (usuarioLogin.rol == "Eps")
+        //        {
+        //            Response.Redirect("menuEps.aspx",false);
+        //        }
+        //        if (usuarioLogin.rol == "administrador")
+        //        {
+        //            Response.Redirect("menuAdministrador.aspx", false);
+        //        }
+        //        if (usuarioLogin.rol == "Usuario")
+        //        {
+        //            Response.Redirect("menuUsuario.aspx", false);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // Aqui va un mensaje al usuario que no se loguea
+        //    }
+            
+        //}
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("registrarUsuario.aspx",false);
+        }
+
+        protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             ClsUsuario usuarioDao = new ClsUsuario();
             usuario usuarioLogin = new usuario();
-            string nombre = Login.UserName;
-            string contrasena = Login.Password;
-            usuarioLogin = usuarioDao.login(nombre,contrasena);
+            string nombre = txtUsuario.Text;
+            string contrasena = txtContrasena.Text;
+            usuarioLogin = usuarioDao.login(nombre, contrasena);
             if (usuarioLogin.numero_cedula != null)
             {
                 Session["cedulaLogin"] = usuarioLogin.numero_cedula;
@@ -29,7 +66,7 @@ namespace proyectoFinal
                 Session["rolLogin"] = usuarioLogin.rol;
                 if (usuarioLogin.rol == "Eps")
                 {
-                    Response.Redirect("menuEps.aspx",false);
+                    Response.Redirect("menuEps.aspx", false);
                 }
                 if (usuarioLogin.rol == "administrador")
                 {
@@ -44,12 +81,6 @@ namespace proyectoFinal
             {
                 // Aqui va un mensaje al usuario que no se loguea
             }
-            
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("registrarUsuario.aspx",false);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hospitales" Class="OrmHospitalesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=STEPHI-PC\SQLEXPRESS;Initial Catalog=hospitales;Integrated Security=True" SettingsObjectName="Logica.Properties.Settings" SettingsPropertyName="hospitalesConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-TJKQ4CV\SQLEXPRESS;Initial Catalog=hospitales;Integrated Security=True" SettingsObjectName="Logica.Properties.Settings" SettingsPropertyName="hospitalesConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.calificacion" Member="calificacion">
     <Type Name="calificacion">
       <Column Name="id_calificacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
