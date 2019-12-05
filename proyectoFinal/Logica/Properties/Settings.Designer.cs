@@ -26,8 +26,8 @@ namespace Logica.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=STEPHI-PC\\SQLEXPRESS;Initial Catalog=hospitales;Integrated Security=T" +
-            "rue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TJKQ4CV\\SQLEXPRESS;Initial Catalog=hospitales;Integrated Secu" +
+            "rity=True")]
         public string hospitalesConnectionString {
             get {
                 return ((string)(this["hospitalesConnectionString"]));
