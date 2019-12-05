@@ -18,19 +18,34 @@ namespace proyectoFinal
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
 
-            ClsCentroMedico CentroMedicoDAO = new ClsCentroMedico();
-            centro_medico registrarCentroMedicoDTO = new centro_medico();
-            string mensaje;
-            registrarCentroMedicoDTO.id_centro_medico = 1;
-            registrarCentroMedicoDTO.nombre_centro_medico = txtNombre.Text;
-            registrarCentroMedicoDTO.nivel_atencion = txtNivelatencion.Text;
-            registrarCentroMedicoDTO.horarios = txtHorarios.Text;
-            registrarCentroMedicoDTO.direccion = txtDireccion.Text;
-            registrarCentroMedicoDTO.foto = txtFoto.Text;
-            mensaje = CentroMedicoDAO.registrarCentroMedico(registrarCentroMedicoDTO);
-            btnRegistrar.Text = mensaje;
             
 
+            if (Fulfoto.HasFile)
+            {
+                string nombre = Fulfoto.FileName;
+                string ruta = "~/img/" + nombre;
+                Fulfoto.SaveAs(Server.MapPath(ruta));
+
+
+                ClsCentroMedico CentroMedicoDAO = new ClsCentroMedico();
+                centro_medico registrarCentroMedicoDTO = new centro_medico();
+                string mensaje;
+                registrarCentroMedicoDTO.id_centro_medico = 1;
+                registrarCentroMedicoDTO.nombre_centro_medico = txtNombre.Text;
+                registrarCentroMedicoDTO.nivel_atencion = txtNivelatencion.Text;
+                registrarCentroMedicoDTO.horarios = txtHorarios.Text;
+                registrarCentroMedicoDTO.direccion = txtDireccion.Text;
+                registrarCentroMedicoDTO.foto = ruta;
+
+                mensaje = CentroMedicoDAO.registrarCentroMedico(registrarCentroMedicoDTO);
+                btnRegistrar.Text = mensaje;
+
+            }
+
+
+
         }
+
+
     }
 }

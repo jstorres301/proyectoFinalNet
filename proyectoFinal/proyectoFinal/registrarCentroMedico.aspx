@@ -30,16 +30,15 @@
         <asp:TextBox ID="txtHorarios" runat="server"></asp:TextBox>
         <br />
 
-        <asp:Label ID="Label1" runat="server" Text="Direccion"></asp:Label>
+        <asp:Label ID="LblDireccion" runat="server" Text="Direccion"></asp:Label>
         <br />
         <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
         <br />
-
-        <asp:Label ID="lblFoto" runat="server" Text="Foto"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtFoto" runat="server"></asp:TextBox>
         <br />
 
+        <asp:FileUpload ID="Fulfoto" runat="server" />
+        <asp:Image ID="imgfoto" runat="server" />  
+        <br /><br />
          <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" />
     </form>
     
