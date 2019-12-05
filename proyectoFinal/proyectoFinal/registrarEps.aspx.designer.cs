@@ -11,89 +11,71 @@ namespace proyectoFinal
 {
 
 
-    public partial class registrarCentroMedico
+    public partial class registrarEps
     {
 
         /// <summary>
-        /// Control form2.
+        /// Control frmRegistrarEps.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmRegistrarEps;
 
         /// <summary>
-        /// Control lblIdcentromedico.
+        /// Control lblNit.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdcentromedico;
+        protected global::System.Web.UI.WebControls.Label lblNit;
 
         /// <summary>
-        /// Control txtIdcentromedico.
+        /// Control txtNit.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdcentromedico;
+        protected global::System.Web.UI.WebControls.TextBox txtNit;
 
         /// <summary>
-        /// Control lblNombreCentroMedico.
+        /// Control LblNombreEps.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreCentroMedico;
+        protected global::System.Web.UI.WebControls.Label LblNombreEps;
 
         /// <summary>
-        /// Control txtNombre.
+        /// Control TxtNombreEps.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox TxtNombreEps;
 
         /// <summary>
-        /// Control lblNivelatencion.
+        /// Control LblNumeroDeTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNivelatencion;
+        protected global::System.Web.UI.WebControls.Label LblNumeroDeTelefono;
 
         /// <summary>
-        /// Control txtNivelatencion.
+        /// Control TxtNumeroDeTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNivelatencion;
-
-        /// <summary>
-        /// Control lblHorarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHorarios;
-
-        /// <summary>
-        /// Control txtHorarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHorarios;
+        protected global::System.Web.UI.WebControls.TextBox TxtNumeroDeTelefono;
 
         /// <summary>
         /// Control LblDireccion.
@@ -105,31 +87,13 @@ namespace proyectoFinal
         protected global::System.Web.UI.WebControls.Label LblDireccion;
 
         /// <summary>
-        /// Control txtDireccion.
+        /// Control TxtDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-
-        /// <summary>
-        /// Control Fulfoto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Fulfoto;
-
-        /// <summary>
-        /// Control imgfoto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgfoto;
+        protected global::System.Web.UI.WebControls.TextBox TxtDireccion;
 
         /// <summary>
         /// Control btnRegistrar.
