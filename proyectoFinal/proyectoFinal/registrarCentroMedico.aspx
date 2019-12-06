@@ -5,15 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Registrar Convenios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
    
         <form id="form2" runat="server">
-        <!--<asp:Label ID="lblIdcentromedico" runat="server" Text="Id Centro Medico"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtIdcentromedico" runat="server"></asp:TextBox>
-        <br /> -->
 
         <asp:Label ID="lblNombreCentroMedico" runat="server" Text="Nombre del CentroMedico"></asp:Label>
         <br />

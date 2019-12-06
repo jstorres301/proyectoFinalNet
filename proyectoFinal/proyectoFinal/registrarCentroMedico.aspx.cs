@@ -38,7 +38,6 @@ namespace proyectoFinal
                 registrarCentroMedicoDTO.foto = ruta;
 
                 mensaje = CentroMedicoDAO.registrarCentroMedico(registrarCentroMedicoDTO);
-                btnRegistrar.Text = mensaje;
 
             }
 

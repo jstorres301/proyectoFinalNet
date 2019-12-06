@@ -33,5 +33,13 @@ namespace Logica
             }
             return mensaje;
         }
+
+        public void consultar(ref GridView gdvTabla)
+        {
+
+            var consulta = (from centro in db.centro_medico select centro).ToList();
+            gdvTabla.DataSource = consulta;
+            gdvTabla.DataBind();
+        }
     }
 }
