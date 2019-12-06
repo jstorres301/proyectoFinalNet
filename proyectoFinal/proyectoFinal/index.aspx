@@ -2,15 +2,16 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" class="bg-dark">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background: #7AABCB;">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iniciar sesion</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" /> -->
+    <style
 </head>
-<body class="bg-dark">
+<body class="bg-transparent">
     <form id="form1" runat="server" class="was-validated mt-5">
         <div class="row w-100 m-0 p-0 mt-5">
             <div class="col-3 m-0">
@@ -21,6 +22,7 @@
                         <h2>Iniciar Sesion</h2>
                     </div>
                     <div class="card-body">
+
                         <div class="form-group">
                             <label>Nombre de Usuario:</label>
                             <div class="input-group mb-3">

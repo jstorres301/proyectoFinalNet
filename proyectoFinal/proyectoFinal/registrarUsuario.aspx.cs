@@ -28,7 +28,6 @@ namespace proyectoFinal
             usuarioDto.rol = ddlEps.SelectedValue;
             usuarioDto.contrasena = txtContraseña.Text;
             mensaje = usuarioDao.registrarUsuario(usuarioDto);
-            lblMensaje.Text = mensaje;
         }
     }
 }
