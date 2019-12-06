@@ -74,10 +74,13 @@
     <Content Include="img\eliminar.png" />
     <Content Include="img\icono.png" />
     <Content Include="index.aspx" />
+    <Content Include="listarCalificacion.aspx" />
     <Content Include="menuAdministrador.aspx" />
     <Content Include="menuEps.aspx" />
     <Content Include="RCcentroMedico.aspx" />
+    <Content Include="registrarCalificacion.aspx" />
     <Content Include="registrarCentroMedico.aspx" />
+    <Content Include="registrarCitaMedica.aspx" />
     <Content Include="registrarEps.aspx" />
     <Content Include="registrarInformacion.aspx" />
     <Content Include="menuUsuario.aspx" />
@@ -115,6 +118,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="listarCalificacion.aspx.cs">
+      <DependentUpon>listarCalificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listarCalificacion.aspx.designer.cs">
+      <DependentUpon>listarCalificacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="menuAdministrador.aspx.cs">
       <DependentUpon>menuAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,12 +154,26 @@
     <Compile Include="RCcentroMedico.aspx.designer.cs">
       <DependentUpon>RCcentroMedico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="registrarCalificacion.aspx.cs">
+      <DependentUpon>registrarCalificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registrarCalificacion.aspx.designer.cs">
+      <DependentUpon>registrarCalificacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="registrarCentroMedico.aspx.cs">
       <DependentUpon>registrarCentroMedico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="registrarCentroMedico.aspx.designer.cs">
       <DependentUpon>registrarCentroMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registrarCitaMedica.aspx.cs">
+      <DependentUpon>registrarCitaMedica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registrarCitaMedica.aspx.designer.cs">
+      <DependentUpon>registrarCitaMedica.aspx</DependentUpon>
     </Compile>
     <Compile Include="registrarEps.aspx.cs">
       <DependentUpon>registrarEps.aspx</DependentUpon>

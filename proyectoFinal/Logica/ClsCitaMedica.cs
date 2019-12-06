@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace Logica
 {
-    public class ClsCalificacion
+    public class ClsCitaMedica
     {
         OrmHospitalesDataContext db = new OrmHospitalesDataContext();
 
-        public string registrarCalificacion(calificacion c)
+        public string registrarCitaMedica(cita_medica ct)
         {
             string mensaje;
             try
             {
-                db.calificacion.InsertOnSubmit(c);
+                db.cita_medica .InsertOnSubmit(ct);
                 db.SubmitChanges();
                 mensaje = "Se ha registrado correctamente";
             }
@@ -25,5 +26,14 @@ namespace Logica
             }
             return mensaje;
         }
+
+        public void consultar(ref GridView gtvListarCitas)
+        {
+
+            var consulta = (from ctm in db.cita_medica select ctm).ToList();
+            gtvListarCitas.DataSource = consulta;
+            gtvListarCitas.DataBind();
+        }
+
     }
 }

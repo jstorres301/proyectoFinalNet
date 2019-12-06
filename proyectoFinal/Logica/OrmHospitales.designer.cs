@@ -36,9 +36,6 @@ namespace Logica
     partial void Insertcentro_medico(centro_medico instance);
     partial void Updatecentro_medico(centro_medico instance);
     partial void Deletecentro_medico(centro_medico instance);
-    partial void Insertcita_medica(cita_medica instance);
-    partial void Updatecita_medica(cita_medica instance);
-    partial void Deletecita_medica(cita_medica instance);
     partial void Insertconsulta(consulta instance);
     partial void Updateconsulta(consulta instance);
     partial void Deleteconsulta(consulta instance);
@@ -54,6 +51,9 @@ namespace Logica
     partial void Insertusuario(usuario instance);
     partial void Updateusuario(usuario instance);
     partial void Deleteusuario(usuario instance);
+    partial void Insertcita_medica(cita_medica instance);
+    partial void Updatecita_medica(cita_medica instance);
+    partial void Deletecita_medica(cita_medica instance);
     #endregion
 		
 		public OrmHospitalesDataContext() : 
@@ -110,14 +110,6 @@ namespace Logica
 			}
 		}
 		
-		public System.Data.Linq.Table<cita_medica> cita_medica
-		{
-			get
-			{
-				return this.GetTable<cita_medica>();
-			}
-		}
-		
 		public System.Data.Linq.Table<consulta> consulta
 		{
 			get
@@ -163,6 +155,14 @@ namespace Logica
 			get
 			{
 				return this.GetTable<usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<cita_medica> cita_medica
+		{
+			get
+			{
+				return this.GetTable<cita_medica>();
 			}
 		}
 		
@@ -402,11 +402,11 @@ namespace Logica
 		
 		private string _foto;
 		
-		private EntitySet<cita_medica> _cita_medica;
-		
 		private EntitySet<consulta> _consulta;
 		
 		private EntitySet<telefono> _telefono;
+		
+		private EntitySet<cita_medica> _cita_medica;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -428,9 +428,9 @@ namespace Logica
 		
 		public centro_medico()
 		{
-			this._cita_medica = new EntitySet<cita_medica>(new Action<cita_medica>(this.attach_cita_medica), new Action<cita_medica>(this.detach_cita_medica));
 			this._consulta = new EntitySet<consulta>(new Action<consulta>(this.attach_consulta), new Action<consulta>(this.detach_consulta));
 			this._telefono = new EntitySet<telefono>(new Action<telefono>(this.attach_telefono), new Action<telefono>(this.detach_telefono));
+			this._cita_medica = new EntitySet<cita_medica>(new Action<cita_medica>(this.attach_cita_medica), new Action<cita_medica>(this.detach_cita_medica));
 			OnCreated();
 		}
 		
@@ -554,19 +554,6 @@ namespace Logica
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_cita_medica", Storage="_cita_medica", ThisKey="id_centro_medico", OtherKey="centro_medico")]
-		public EntitySet<cita_medica> cita_medica
-		{
-			get
-			{
-				return this._cita_medica;
-			}
-			set
-			{
-				this._cita_medica.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_consulta", Storage="_consulta", ThisKey="id_centro_medico", OtherKey="centro_medico_id")]
 		public EntitySet<consulta> consulta
 		{
@@ -593,6 +580,19 @@ namespace Logica
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_cita_medica", Storage="_cita_medica", ThisKey="id_centro_medico", OtherKey="centro_medico")]
+		public EntitySet<cita_medica> cita_medica
+		{
+			get
+			{
+				return this._cita_medica;
+			}
+			set
+			{
+				this._cita_medica.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -611,18 +611,6 @@ namespace Logica
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_cita_medica(cita_medica entity)
-		{
-			this.SendPropertyChanging();
-			entity.centro_medico1 = this;
-		}
-		
-		private void detach_cita_medica(cita_medica entity)
-		{
-			this.SendPropertyChanging();
-			entity.centro_medico1 = null;
 		}
 		
 		private void attach_consulta(consulta entity)
@@ -647,6 +635,18 @@ namespace Logica
 		{
 			this.SendPropertyChanging();
 			entity.centro_medico = null;
+		}
+		
+		private void attach_cita_medica(cita_medica entity)
+		{
+			this.SendPropertyChanging();
+			entity.centro_medico1 = this;
+		}
+		
+		private void detach_cita_medica(cita_medica entity)
+		{
+			this.SendPropertyChanging();
+			entity.centro_medico1 = null;
 		}
 	}
 	
@@ -691,287 +691,6 @@ namespace Logica
 				{
 					this._especialidad_id = value;
 				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.cita_medica")]
-	public partial class cita_medica : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_cita;
-		
-		private System.DateTime _fecha_hora;
-		
-		private int _centro_medico;
-		
-		private long _usuario_cedula;
-		
-		private int _calificacion;
-		
-		private EntityRef<calificacion> _calificacion1;
-		
-		private EntityRef<centro_medico> _centro_medico1;
-		
-		private EntityRef<usuario> _usuario;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_citaChanging(int value);
-    partial void Onid_citaChanged();
-    partial void Onfecha_horaChanging(System.DateTime value);
-    partial void Onfecha_horaChanged();
-    partial void Oncentro_medicoChanging(int value);
-    partial void Oncentro_medicoChanged();
-    partial void Onusuario_cedulaChanging(long value);
-    partial void Onusuario_cedulaChanged();
-    partial void OncalificacionChanging(int value);
-    partial void OncalificacionChanged();
-    #endregion
-		
-		public cita_medica()
-		{
-			this._calificacion1 = default(EntityRef<calificacion>);
-			this._centro_medico1 = default(EntityRef<centro_medico>);
-			this._usuario = default(EntityRef<usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cita", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_cita
-		{
-			get
-			{
-				return this._id_cita;
-			}
-			set
-			{
-				if ((this._id_cita != value))
-				{
-					this.Onid_citaChanging(value);
-					this.SendPropertyChanging();
-					this._id_cita = value;
-					this.SendPropertyChanged("id_cita");
-					this.Onid_citaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_hora", DbType="DateTime NOT NULL")]
-		public System.DateTime fecha_hora
-		{
-			get
-			{
-				return this._fecha_hora;
-			}
-			set
-			{
-				if ((this._fecha_hora != value))
-				{
-					this.Onfecha_horaChanging(value);
-					this.SendPropertyChanging();
-					this._fecha_hora = value;
-					this.SendPropertyChanged("fecha_hora");
-					this.Onfecha_horaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_centro_medico", DbType="Int NOT NULL")]
-		public int centro_medico
-		{
-			get
-			{
-				return this._centro_medico;
-			}
-			set
-			{
-				if ((this._centro_medico != value))
-				{
-					if (this._centro_medico1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncentro_medicoChanging(value);
-					this.SendPropertyChanging();
-					this._centro_medico = value;
-					this.SendPropertyChanged("centro_medico");
-					this.Oncentro_medicoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usuario_cedula", DbType="BigInt NOT NULL")]
-		public long usuario_cedula
-		{
-			get
-			{
-				return this._usuario_cedula;
-			}
-			set
-			{
-				if ((this._usuario_cedula != value))
-				{
-					if (this._usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onusuario_cedulaChanging(value);
-					this.SendPropertyChanging();
-					this._usuario_cedula = value;
-					this.SendPropertyChanged("usuario_cedula");
-					this.Onusuario_cedulaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_calificacion", DbType="Int NOT NULL")]
-		public int calificacion
-		{
-			get
-			{
-				return this._calificacion;
-			}
-			set
-			{
-				if ((this._calificacion != value))
-				{
-					if (this._calificacion1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OncalificacionChanging(value);
-					this.SendPropertyChanging();
-					this._calificacion = value;
-					this.SendPropertyChanged("calificacion");
-					this.OncalificacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="calificacion_cita_medica", Storage="_calificacion1", ThisKey="calificacion", OtherKey="id_calificacion", IsForeignKey=true)]
-		public calificacion calificacion1
-		{
-			get
-			{
-				return this._calificacion1.Entity;
-			}
-			set
-			{
-				calificacion previousValue = this._calificacion1.Entity;
-				if (((previousValue != value) 
-							|| (this._calificacion1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._calificacion1.Entity = null;
-						previousValue.cita_medica.Remove(this);
-					}
-					this._calificacion1.Entity = value;
-					if ((value != null))
-					{
-						value.cita_medica.Add(this);
-						this._calificacion = value.id_calificacion;
-					}
-					else
-					{
-						this._calificacion = default(int);
-					}
-					this.SendPropertyChanged("calificacion1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_cita_medica", Storage="_centro_medico1", ThisKey="centro_medico", OtherKey="id_centro_medico", IsForeignKey=true)]
-		public centro_medico centro_medico1
-		{
-			get
-			{
-				return this._centro_medico1.Entity;
-			}
-			set
-			{
-				centro_medico previousValue = this._centro_medico1.Entity;
-				if (((previousValue != value) 
-							|| (this._centro_medico1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._centro_medico1.Entity = null;
-						previousValue.cita_medica.Remove(this);
-					}
-					this._centro_medico1.Entity = value;
-					if ((value != null))
-					{
-						value.cita_medica.Add(this);
-						this._centro_medico = value.id_centro_medico;
-					}
-					else
-					{
-						this._centro_medico = default(int);
-					}
-					this.SendPropertyChanged("centro_medico1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="usuario_cita_medica", Storage="_usuario", ThisKey="usuario_cedula", OtherKey="numero_cedula", IsForeignKey=true)]
-		public usuario usuario
-		{
-			get
-			{
-				return this._usuario.Entity;
-			}
-			set
-			{
-				usuario previousValue = this._usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._usuario.Entity = null;
-						previousValue.cita_medica.Remove(this);
-					}
-					this._usuario.Entity = value;
-					if ((value != null))
-					{
-						value.cita_medica.Add(this);
-						this._usuario_cedula = value.numero_cedula;
-					}
-					else
-					{
-						this._usuario_cedula = default(long);
-					}
-					this.SendPropertyChanged("usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1660,9 +1379,9 @@ namespace Logica
 		
 		private EntitySet<calificacion> _calificacion;
 		
-		private EntitySet<cita_medica> _cita_medica;
-		
 		private EntitySet<consulta> _consulta;
+		
+		private EntitySet<cita_medica> _cita_medica;
 		
 		private EntityRef<eps> _eps;
 		
@@ -1691,8 +1410,8 @@ namespace Logica
 		public usuario()
 		{
 			this._calificacion = new EntitySet<calificacion>(new Action<calificacion>(this.attach_calificacion), new Action<calificacion>(this.detach_calificacion));
-			this._cita_medica = new EntitySet<cita_medica>(new Action<cita_medica>(this.attach_cita_medica), new Action<cita_medica>(this.detach_cita_medica));
 			this._consulta = new EntitySet<consulta>(new Action<consulta>(this.attach_consulta), new Action<consulta>(this.detach_consulta));
+			this._cita_medica = new EntitySet<cita_medica>(new Action<cita_medica>(this.attach_cita_medica), new Action<cita_medica>(this.detach_cita_medica));
 			this._eps = default(EntityRef<eps>);
 			OnCreated();
 		}
@@ -1874,19 +1593,6 @@ namespace Logica
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="usuario_cita_medica", Storage="_cita_medica", ThisKey="numero_cedula", OtherKey="usuario_cedula")]
-		public EntitySet<cita_medica> cita_medica
-		{
-			get
-			{
-				return this._cita_medica;
-			}
-			set
-			{
-				this._cita_medica.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="usuario_consulta", Storage="_consulta", ThisKey="numero_cedula", OtherKey="usuario_numero_cedula")]
 		public EntitySet<consulta> consulta
 		{
@@ -1897,6 +1603,19 @@ namespace Logica
 			set
 			{
 				this._consulta.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="usuario_cita_medica", Storage="_cita_medica", ThisKey="numero_cedula", OtherKey="usuario_cedula")]
+		public EntitySet<cita_medica> cita_medica
+		{
+			get
+			{
+				return this._cita_medica;
+			}
+			set
+			{
+				this._cita_medica.Assign(value);
 			}
 		}
 		
@@ -1966,6 +1685,18 @@ namespace Logica
 			entity.usuario = null;
 		}
 		
+		private void attach_consulta(consulta entity)
+		{
+			this.SendPropertyChanging();
+			entity.usuario = this;
+		}
+		
+		private void detach_consulta(consulta entity)
+		{
+			this.SendPropertyChanging();
+			entity.usuario = null;
+		}
+		
 		private void attach_cita_medica(cita_medica entity)
 		{
 			this.SendPropertyChanging();
@@ -1977,17 +1708,286 @@ namespace Logica
 			this.SendPropertyChanging();
 			entity.usuario = null;
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.cita_medica")]
+	public partial class cita_medica : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		private void attach_consulta(consulta entity)
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_cita;
+		
+		private System.DateTime _fecha_hora;
+		
+		private long _usuario_cedula;
+		
+		private int _centro_medico;
+		
+		private System.Nullable<int> _calificacion;
+		
+		private EntityRef<calificacion> _calificacion1;
+		
+		private EntityRef<centro_medico> _centro_medico1;
+		
+		private EntityRef<usuario> _usuario;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_citaChanging(int value);
+    partial void Onid_citaChanged();
+    partial void Onfecha_horaChanging(System.DateTime value);
+    partial void Onfecha_horaChanged();
+    partial void Onusuario_cedulaChanging(long value);
+    partial void Onusuario_cedulaChanged();
+    partial void Oncentro_medicoChanging(int value);
+    partial void Oncentro_medicoChanged();
+    partial void OncalificacionChanging(System.Nullable<int> value);
+    partial void OncalificacionChanged();
+    #endregion
+		
+		public cita_medica()
 		{
-			this.SendPropertyChanging();
-			entity.usuario = this;
+			this._calificacion1 = default(EntityRef<calificacion>);
+			this._centro_medico1 = default(EntityRef<centro_medico>);
+			this._usuario = default(EntityRef<usuario>);
+			OnCreated();
 		}
 		
-		private void detach_consulta(consulta entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cita", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id_cita
 		{
-			this.SendPropertyChanging();
-			entity.usuario = null;
+			get
+			{
+				return this._id_cita;
+			}
+			set
+			{
+				if ((this._id_cita != value))
+				{
+					this.Onid_citaChanging(value);
+					this.SendPropertyChanging();
+					this._id_cita = value;
+					this.SendPropertyChanged("id_cita");
+					this.Onid_citaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_hora", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_hora
+		{
+			get
+			{
+				return this._fecha_hora;
+			}
+			set
+			{
+				if ((this._fecha_hora != value))
+				{
+					this.Onfecha_horaChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_hora = value;
+					this.SendPropertyChanged("fecha_hora");
+					this.Onfecha_horaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usuario_cedula", DbType="BigInt NOT NULL")]
+		public long usuario_cedula
+		{
+			get
+			{
+				return this._usuario_cedula;
+			}
+			set
+			{
+				if ((this._usuario_cedula != value))
+				{
+					if (this._usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onusuario_cedulaChanging(value);
+					this.SendPropertyChanging();
+					this._usuario_cedula = value;
+					this.SendPropertyChanged("usuario_cedula");
+					this.Onusuario_cedulaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_centro_medico", DbType="Int NOT NULL")]
+		public int centro_medico
+		{
+			get
+			{
+				return this._centro_medico;
+			}
+			set
+			{
+				if ((this._centro_medico != value))
+				{
+					if (this._centro_medico1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncentro_medicoChanging(value);
+					this.SendPropertyChanging();
+					this._centro_medico = value;
+					this.SendPropertyChanged("centro_medico");
+					this.Oncentro_medicoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_calificacion", DbType="Int")]
+		public System.Nullable<int> calificacion
+		{
+			get
+			{
+				return this._calificacion;
+			}
+			set
+			{
+				if ((this._calificacion != value))
+				{
+					if (this._calificacion1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OncalificacionChanging(value);
+					this.SendPropertyChanging();
+					this._calificacion = value;
+					this.SendPropertyChanged("calificacion");
+					this.OncalificacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="calificacion_cita_medica", Storage="_calificacion1", ThisKey="calificacion", OtherKey="id_calificacion", IsForeignKey=true)]
+		public calificacion calificacion1
+		{
+			get
+			{
+				return this._calificacion1.Entity;
+			}
+			set
+			{
+				calificacion previousValue = this._calificacion1.Entity;
+				if (((previousValue != value) 
+							|| (this._calificacion1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._calificacion1.Entity = null;
+						previousValue.cita_medica.Remove(this);
+					}
+					this._calificacion1.Entity = value;
+					if ((value != null))
+					{
+						value.cita_medica.Add(this);
+						this._calificacion = value.id_calificacion;
+					}
+					else
+					{
+						this._calificacion = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("calificacion1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_cita_medica", Storage="_centro_medico1", ThisKey="centro_medico", OtherKey="id_centro_medico", IsForeignKey=true)]
+		public centro_medico centro_medico1
+		{
+			get
+			{
+				return this._centro_medico1.Entity;
+			}
+			set
+			{
+				centro_medico previousValue = this._centro_medico1.Entity;
+				if (((previousValue != value) 
+							|| (this._centro_medico1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._centro_medico1.Entity = null;
+						previousValue.cita_medica.Remove(this);
+					}
+					this._centro_medico1.Entity = value;
+					if ((value != null))
+					{
+						value.cita_medica.Add(this);
+						this._centro_medico = value.id_centro_medico;
+					}
+					else
+					{
+						this._centro_medico = default(int);
+					}
+					this.SendPropertyChanged("centro_medico1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="usuario_cita_medica", Storage="_usuario", ThisKey="usuario_cedula", OtherKey="numero_cedula", IsForeignKey=true)]
+		public usuario usuario
+		{
+			get
+			{
+				return this._usuario.Entity;
+			}
+			set
+			{
+				usuario previousValue = this._usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._usuario.Entity = null;
+						previousValue.cita_medica.Remove(this);
+					}
+					this._usuario.Entity = value;
+					if ((value != null))
+					{
+						value.cita_medica.Add(this);
+						this._usuario_cedula = value.numero_cedula;
+					}
+					else
+					{
+						this._usuario_cedula = default(long);
+					}
+					this.SendPropertyChanged("usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
