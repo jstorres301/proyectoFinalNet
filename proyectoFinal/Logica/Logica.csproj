@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ClsCalificacion.cs" />
     <Compile Include="ClsCentroMedicoHasEspecialidades.cs" />
+    <Compile Include="ClsCitaMedica.cs" />
     <Compile Include="ClsConsultas.cs" />
     <Compile Include="ClsEps.cs" />
     <Compile Include="ClsEpsHasCentroMedico.cs" />
@@ -55,6 +56,9 @@
     <Compile Include="ClsCentroMedico.cs" />
     <Compile Include="ClsTelefono.cs" />
     <Compile Include="ClsUsuario.cs" />
+    <Compile Include="OrmHospitales.cs">
+      <DependentUpon>OrmHospitales.dbml</DependentUpon>
+    </Compile>
     <Compile Include="OrmHospitales.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

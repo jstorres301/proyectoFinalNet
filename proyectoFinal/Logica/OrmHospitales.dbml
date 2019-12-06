@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hospitales" Class="OrmHospitalesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-TJKQ4CV\SQLEXPRESS;Initial Catalog=hospitales;Integrated Security=True" SettingsObjectName="Logica.Properties.Settings" SettingsPropertyName="hospitalesConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=STEPHI-PC\SQLEXPRESS;Initial Catalog=hospitales;Integrated Security=True" SettingsObjectName="Logica.Properties.Settings" SettingsPropertyName="hospitalesConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.calificacion" Member="calificacion">
     <Type Name="calificacion">
       <Column Name="id_calificacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -19,10 +19,10 @@
       <Column Name="direccion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="foto" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Association Name="centro_medico_centro_medico_has_especialidades" Member="centro_medico_has_especialidades" ThisKey="id_centro_medico" OtherKey="centro_medico_id" Type="centro_medico_has_especialidades" />
-      <Association Name="centro_medico_cita_medica" Member="cita_medica" ThisKey="id_centro_medico" OtherKey="centro_medico" Type="cita_medica" />
       <Association Name="centro_medico_consulta" Member="consulta" ThisKey="id_centro_medico" OtherKey="centro_medico_id" Type="consulta" />
       <Association Name="centro_medico_eps_has_centromedico" Member="eps_has_centromedico" ThisKey="id_centro_medico" OtherKey="id_centro_medico" Type="eps_has_centromedico" />
       <Association Name="centro_medico_telefono" Member="telefono" ThisKey="id_centro_medico" OtherKey="id_centro_medico" Type="telefono" />
+      <Association Name="centro_medico_cita_medica" Member="cita_medica" ThisKey="id_centro_medico" OtherKey="centro_medico" Type="cita_medica" />
     </Type>
   </Table>
   <Table Name="dbo.centro_medico_has_especialidades" Member="centro_medico_has_especialidades">
@@ -31,18 +31,6 @@
       <Column Name="especialidad_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="centro_medico_centro_medico_has_especialidades" Member="centro_medico" ThisKey="centro_medico_id" OtherKey="id_centro_medico" Type="centro_medico" IsForeignKey="true" />
       <Association Name="especialidad_centro_medico_has_especialidades" Member="especialidad" ThisKey="especialidad_id" OtherKey="id_especialidad" Type="especialidad" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.cita_medica" Member="cita_medica">
-    <Type Name="cita_medica">
-      <Column Name="id_cita" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fecha_hora" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="centro_medico" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="usuario_cedula" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="calificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="calificacion_cita_medica" Member="calificacion1" ThisKey="calificacion" OtherKey="id_calificacion" Type="calificacion" IsForeignKey="true" />
-      <Association Name="centro_medico_cita_medica" Member="centro_medico1" ThisKey="centro_medico" OtherKey="id_centro_medico" Type="centro_medico" IsForeignKey="true" />
-      <Association Name="usuario_cita_medica" Member="usuario" ThisKey="usuario_cedula" OtherKey="numero_cedula" Type="usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.consulta" Member="consulta">
@@ -99,9 +87,21 @@
       <Column Name="rol" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="eps_id_eps" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
       <Association Name="usuario_calificacion" Member="calificacion" ThisKey="numero_cedula" OtherKey="usuario_cedula" Type="calificacion" />
-      <Association Name="usuario_cita_medica" Member="cita_medica" ThisKey="numero_cedula" OtherKey="usuario_cedula" Type="cita_medica" />
       <Association Name="usuario_consulta" Member="consulta" ThisKey="numero_cedula" OtherKey="usuario_numero_cedula" Type="consulta" />
+      <Association Name="usuario_cita_medica" Member="cita_medica" ThisKey="numero_cedula" OtherKey="usuario_cedula" Type="cita_medica" />
       <Association Name="eps_usuario" Member="eps" ThisKey="eps_id_eps" OtherKey="nit" Type="eps" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cita_medica" Member="cita_medica">
+    <Type Name="cita_medica">
+      <Column Name="id_cita" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fecha_hora" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="usuario_cedula" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="centro_medico" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="calificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="calificacion_cita_medica" Member="calificacion1" ThisKey="calificacion" OtherKey="id_calificacion" Type="calificacion" IsForeignKey="true" />
+      <Association Name="centro_medico_cita_medica" Member="centro_medico1" ThisKey="centro_medico" OtherKey="id_centro_medico" Type="centro_medico" IsForeignKey="true" />
+      <Association Name="usuario_cita_medica" Member="usuario" ThisKey="usuario_cedula" OtherKey="numero_cedula" Type="usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_login" Method="sp_login">
