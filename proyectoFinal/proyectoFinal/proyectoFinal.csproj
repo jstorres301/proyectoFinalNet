@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bienvenidoAdmin.aspx" />
+    <Content Include="bienvenidoEps.aspx" />
+    <Content Include="bienvenidoUsuario.aspx" />
     <Content Include="consultarCentrosMedicos.aspx" />
     <Content Include="consultarCentro.aspx" />
     <Content Include="consultarUsuarios.aspx" />
@@ -89,6 +92,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bienvenidoAdmin.aspx.cs">
+      <DependentUpon>bienvenidoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bienvenidoAdmin.aspx.designer.cs">
+      <DependentUpon>bienvenidoAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bienvenidoEps.aspx.cs">
+      <DependentUpon>bienvenidoEps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bienvenidoEps.aspx.designer.cs">
+      <DependentUpon>bienvenidoEps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bienvenidoUsuario.aspx.cs">
+      <DependentUpon>bienvenidoUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bienvenidoUsuario.aspx.designer.cs">
+      <DependentUpon>bienvenidoUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="consultarCentrosMedicos.aspx.cs">
       <DependentUpon>consultarCentrosMedicos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,12 +156,33 @@
     <Compile Include="menuAdministrador.aspx.designer.cs">
       <DependentUpon>menuAdministrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="menuAdministrador.Master.cs">
+      <DependentUpon>menuAdministrador.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menuAdministrador.Master.designer.cs">
+      <DependentUpon>menuAdministrador.Master</DependentUpon>
+    </Compile>
+    <Compile Include="menuEps.Master.cs">
+      <DependentUpon>menuEps.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menuEps.Master.designer.cs">
+      <DependentUpon>menuEps.Master</DependentUpon>
+    </Compile>
     <Compile Include="menuUsuario.aspx.cs">
       <DependentUpon>menuUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="menuUsuario.aspx.designer.cs">
       <DependentUpon>menuUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="menuUsuario.Master.cs">
+      <DependentUpon>menuUsuario.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menuUsuario.Master.designer.cs">
+      <DependentUpon>menuUsuario.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="menuEps.aspx.cs">
@@ -205,6 +250,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="menuUsuario.Master" />
+    <Content Include="menuAdministrador.Master" />
+    <Content Include="menuEps.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

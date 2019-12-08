@@ -51,13 +51,22 @@ namespace proyectoFinal
         protected global::System.Web.UI.WebControls.Label lblCentro_Medico;
 
         /// <summary>
-        /// Control txtCentro_Medico.
+        /// Control ddlCentro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCentro_Medico;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCentro;
+
+        /// <summary>
+        /// Control centroMedicoLista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource centroMedicoLista;
 
         /// <summary>
         /// Control lblUsuario_Cedula.
