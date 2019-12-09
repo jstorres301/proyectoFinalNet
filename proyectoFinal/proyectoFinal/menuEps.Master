@@ -17,21 +17,21 @@
 
             <div class="nav nav-tabs flex-column w-100 border-0 d-flex justify-content-between h-75 font-italic">
                 <div class="h-75 float-left">
-                    <li class="nav-item nav-link mt-5" role="tab" style="cursor: pointer;">
-                        <a>
-                            <h3><i class="fab fa-asymmetrik"></i>Mi Informacion</h3>
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer;">
+                        <a href="miInformacionEps.aspx" class="text-light" style="text-decoration:none;">
+                            <h3 class="text-light"><i class="fab fa-asymmetrik"></i>Mi Informacion</h3>
                         </a>
                     </li>
 
-                    <li class="nav-item nav-link mt-5 text-light" data-toggle="" role="tab" style="cursor: pointer; text-decoration: none;">
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer; text-decoration: none;">
                         <a href="RCcentroMedico.aspx" class="text-light" style="text-decoration: none;">
                             <h3 class="text-light"><i class="fas fa-hospital"></i>Centros Medicos</h3>
                         </a>
                     </li>
                 </div>
                 <div class="h-25 float-left">
-                    <li class="nav-item nav-link mt-5" role="tab" style="cursor: pointer;">
-                        <a target="mesa" href="index.aspx">
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer;">
+                        <a href="index.aspx" class="text-light" style="text-decoration:none;">
                             <h3 class="text-light"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</h3>
                         </a>
                     </li>

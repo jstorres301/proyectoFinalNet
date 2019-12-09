@@ -17,22 +17,22 @@
 
             <div class="nav nav-tabs flex-column w-100 border-0 d-flex justify-content-between h-75 font-italic">
                 <div class="h-75 float-left">
-                    <li class="nav-item nav-link mt-5" role="tab" style="cursor: pointer;">
-                        <a href="Reportes.aspx">
-                            <h3><i class="fas fa-chart-pie"></i>Grafico en torta</h3>
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer;">
+                        <a href="graficaTorta.aspx" class="text-light" style="text-decoration:none;">
+                            <h3 class="text-ligth"><i class="fas fa-chart-pie"></i>Grafico en torta</h3>
                         </a>
                     </li>
 
-                    <li class="nav-item nav-link" role="tab" style="cursor: pointer;">
-                        <a href="Reportes.aspx">
-                            <h3><i class="fas fa-chart-bar"></i>Grafico en barras</h3>
+                    <li class="nav-item nav-link text-light" role="tab" style="cursor: pointer;">
+                        <a href="graficaBarra.aspx" class="text-light" style="text-decoration:none;">
+                            <h3 class="text-light"><i class="fas fa-chart-bar"></i>Grafico en barras</h3>
                         </a>
                     </li>
                 </div>
                 <div class="h-25 float-left">
-                    <li class="nav-item nav-link mt-5" role="tab" style="cursor: pointer;">
-                        <a href="index.aspx">
-                            <h3><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</h3>
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer;">
+                        <a href="index.aspx" class="text-light" style="text-decoration:none;">
+                            <h3 class="text-light"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</h3>
                         </a>
                     </li>
                 </div>
