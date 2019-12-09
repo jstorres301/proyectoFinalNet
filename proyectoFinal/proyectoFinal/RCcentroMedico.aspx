@@ -2,7 +2,7 @@
 <asp:Content ID="formularioRCCentroMedico" ContentPlaceHolderID="contenidoMenuEps" runat="server">
 
         <div class="col-4">
-            <div class="alert alert-dark" role="alert">
+            <div class="alert alert-dark mt-3" role="alert">
                 <h3 class="text-center"><asp:Label ID="lblMensaje" runat="server" Text="" CssClass="text-center"></asp:Label></h3>
             </div>
             <div class="card was-validated mt-5">
@@ -88,7 +88,7 @@
                     <asp:BoundField DataField="nivel_atencion" HeaderText="Nivel de Atención" />
                     <asp:BoundField DataField="horarios" HeaderText="Horarios de Atención" />
                     <asp:BoundField DataField="direccion" HeaderText="Dirección" />
-                    <asp:ImageField DataImageUrlField="foto" HeaderText="Foto">
+                    <asp:ImageField DataImageUrlField="foto" HeaderText="Foto" ControlStyle-Width="100">
                     </asp:ImageField>
                     <asp:TemplateField HeaderText="Opciones">
                         <ItemTemplate>
