@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace proyectoFinal
 {
-    public partial class consultarCentrosMedicos : System.Web.UI.Page
+    public partial class miInformacionEps : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

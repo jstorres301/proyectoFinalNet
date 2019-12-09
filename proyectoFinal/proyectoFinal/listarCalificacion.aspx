@@ -1,15 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="listarCalificacion.aspx.cs" Inherits="proyectoFinal.listarCalificacion" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <asp:GridView ID="gtvListarCitas" runat="server" AutoGenerateColumns="False">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="listarCalificacion.aspx.cs" Inherits="proyectoFinal.listarCalificacion" MasterPageFile="~/menuUsuario.Master" %>
+<asp:Content ID="formularioListarCalificacion" runat="server" ContentPlaceHolderID="contenidoMenuUsuario">
+    <asp:GridView ID="gtvListarCitas" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="id_cita" HeaderText="Id Cita" />
                 <asp:BoundField DataField="fecha_hora" HeaderText="Fecha/Hora" />
@@ -22,6 +13,5 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-    </form>
-</body>
-</html>
+</asp:Content>
+

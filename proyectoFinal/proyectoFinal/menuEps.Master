@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body class="row d-flex h-100 w-100 m-0 p-0 bg-transparent">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="h-100 w-100 m-0 p-0">
         <div class="h-100 m-auto border-0 float-left rounded text-light" style="width: 20% !important; min-height: 30%; background: rgba(40, 75, 89,0.8);">
             <div class="w-100 h-25 d-flex m-0 p-0 border-0 h-40px float-left text-center justify-content-center">
                 <h1 class="mt-5 text-center">Menu</h1>
@@ -17,20 +17,22 @@
 
             <div class="nav nav-tabs flex-column w-100 border-0 d-flex justify-content-between h-75 font-italic">
                 <div class="h-75 float-left">
-                    <li class="nav-item nav-link mt-5" data-toggle="tab" role="tab" style="cursor: pointer;">
-                        <a target="mesa">
-                            <h3><i class="fab fa-asymmetrik"></i>Mi Informacion</h3>
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer;">
+                        <a href="miInformacionEps.aspx" class="text-light" style="text-decoration:none;">
+                            <h3 class="text-light"><i class="fab fa-asymmetrik"></i>Mi Informacion</h3>
                         </a>
                     </li>
 
-                    <a href="RCcentroMedico.aspx" class="nav-item nav-link" role="tab" style="cursor: pointer;">
-                        <h3><i class="fas fa-hospital"></i>Centros Medicos</h3>
-                    </a>
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer; text-decoration: none;">
+                        <a href="RCcentroMedico.aspx" class="text-light" style="text-decoration: none;">
+                            <h3 class="text-light"><i class="fas fa-hospital"></i>Centros Medicos</h3>
+                        </a>
+                    </li>
                 </div>
                 <div class="h-25 float-left">
-                    <li class="nav-item nav-link mt-5" data-toggle="tab" role="tab" style="cursor: pointer;">
-                        <a target="mesa" href="index.aspx">
-                            <h3><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</h3>
+                    <li class="nav-item nav-link mt-5 text-light" role="tab" style="cursor: pointer;">
+                        <a href="index.aspx" class="text-light" style="text-decoration:none;">
+                            <h3 class="text-light"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</h3>
                         </a>
                     </li>
                 </div>
@@ -49,13 +51,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        $("document").ready(function () {
-            $("li").click(function () {
-                var liUsado = $("li").click;
-                $("li").removeClass("active");
-                liUsado.addClass("active");
-            })
-        })
+        //$("document").ready(function () {
+        //    $("li").click(function () {
+        //        var liUsado = $("li").click;
+        //        $("li").removeClass("active");
+        //        liUsado.attr("data-toggle", "tab");
+        //        liUsado.addClass("active");
+        //    })
+        //})
     </script>
 </body>
 </html>
