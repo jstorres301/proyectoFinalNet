@@ -1,15 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RCcentroMedico.aspx.cs" Inherits="proyectoFinal.RCcentroMedico" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RCcentroMedico.aspx.cs" Inherits="proyectoFinal.RCcentroMedico" MasterPageFile="~/menuEps.Master"%>
+<asp:Content ID="formularioRCCentroMedico" ContentPlaceHolderID="contenidoMenuEps" runat="server">
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" class="w-100 h-100 m-0 p-0" style="background: #7AABCB;">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Registrar Convenios</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<body class="bg-transparent w-100 h-100 m-0 p-0">
-    <form id="form1" runat="server" class="row w-100 h-100 m-0 p-0">
         <div class="col-4">
             <div class="alert alert-dark" role="alert">
                 <h3 class="text-center"><asp:Label ID="lblMensaje" runat="server" Text="" CssClass="text-center"></asp:Label></h3>
@@ -97,6 +88,8 @@
                     <asp:BoundField DataField="nivel_atencion" HeaderText="Nivel de Atención" />
                     <asp:BoundField DataField="horarios" HeaderText="Horarios de Atención" />
                     <asp:BoundField DataField="direccion" HeaderText="Dirección" />
+                    <asp:ImageField DataImageUrlField="foto" HeaderText="Foto">
+                    </asp:ImageField>
                     <asp:TemplateField HeaderText="Opciones">
                         <ItemTemplate>
                             <asp:Button runat="server" Text="Afiliar" CssClass="btn btn-sm btn-info btn-block"></asp:Button>
@@ -115,12 +108,8 @@
                 <SortedDescendingHeaderStyle BackColor="#15524A" />
             </asp:GridView>
         </div>
-    </form>
-    <script src="https://kit.fontawesome.com/ca52bd6e4f.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script>
+
         function inputFile() {
             var imagen = document.getElementById('archivo').value;
             var nombre = imagen.replace(/^.*[\\\/]/, '');
@@ -136,5 +125,4 @@
             inputFile();
         };
     </script>
-</body>
-</html>
+    </asp:Content>

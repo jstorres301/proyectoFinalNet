@@ -66,15 +66,15 @@ namespace proyectoFinal
                 Session["rolLogin"] = usuarioLogin.rol;
                 if (usuarioLogin.rol == "Eps")
                 {
-                    Response.Redirect("menuEps.aspx", false);
+                    Response.Redirect("bienvenidoEps.aspx", false);
                 }
-                if (usuarioLogin.rol == "administrador")
+                if (usuarioLogin.rol == "Administrador")
                 {
-                    Response.Redirect("menuAdministrador.aspx", false);
+                    Response.Redirect("bienvenidoAdmin.aspx", false);
                 }
                 if (usuarioLogin.rol == "Usuario")
                 {
-                    Response.Redirect("menuUsuario.aspx", false);
+                    Response.Redirect("bienvenidoUsuario.aspx", false);
                 }
             }
             else

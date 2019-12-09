@@ -36,7 +36,13 @@ namespace proyectoFinal
                 registrarCentroMedicoDTO.direccion = txtDireccion.Text;
                 registrarCentroMedicoDTO.foto = ruta;
                 lblMensaje.Text = centroMedicoDAO.registrarCentroMedico(registrarCentroMedicoDTO);
+                centroMedicoDAO.consultar(ref glvCentrosMedicos);
             }
+        }
+
+        protected void glvCentrosMedicos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
         }
     }
 }

@@ -22,7 +22,7 @@ namespace proyectoFinal
             string mensaje;
             registrarcitaMedicaDTO.id_cita = 1;
             registrarcitaMedicaDTO.fecha_hora = DateTime.Parse(txtFecha_hora.Text);
-            registrarcitaMedicaDTO.centro_medico = int.Parse(txtCentro_Medico.Text);
+            registrarcitaMedicaDTO.centro_medico = int.Parse(ddlCentro.SelectedValue);
             registrarcitaMedicaDTO.usuario_cedula = long.Parse(txtUsuario_Cedula.Text);
             
             mensaje = citaMedicaDAO.registrarCitaMedica(registrarcitaMedicaDTO);
