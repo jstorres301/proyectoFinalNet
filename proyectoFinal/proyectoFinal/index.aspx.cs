@@ -64,6 +64,7 @@ namespace proyectoFinal
                 Session["cedulaLogin"] = usuarioLogin.numero_cedula;
                 Session["nombreLogin"] = usuarioLogin.nombres + usuarioLogin.primer_apellido + usuarioLogin.segundo_apellido;
                 Session["rolLogin"] = usuarioLogin.rol;
+                Session["eps"] = usuarioLogin.nit_eps;
                 if (usuarioLogin.rol == "Eps")
                 {
                     Response.Redirect("bienvenidoEps.aspx", false);

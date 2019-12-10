@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    class ClsEpsHasCentroMedico
+    public class ClsEpsHasCentroMedico
     {
+        OrmHospitalesDataContext db = new OrmHospitalesDataContext();
+
+        public void afiliar(eps_has_centromedico epc)
+        {
+            db.eps_has_centromedico.InsertOnSubmit(epc);
+        }
     }
 }
