@@ -21,9 +21,8 @@ namespace proyectoFinal
             string mensaje;
             registrarCalificacionDTO.id_calificacion = 1;
             registrarCalificacionDTO.calificacion1 = txtcalificacion.Text;
-            registrarCalificacionDTO.usuario_cedula = int.Parse(txtusuario_cedula.Text);
             registrarCalificacionDTO.id_cita = int.Parse(txtid_cita.Text);
-            mensaje = calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
+             mensaje = calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
             btnRegistrar.Text = mensaje;
         }
     }
