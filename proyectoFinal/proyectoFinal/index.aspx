@@ -11,7 +11,7 @@
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" /> -->
 </head>
 <body class="bg-transparent">
-    <form id="form1" runat="server" class="was-validated mt-5">
+    <form id="form1" runat="server" class="mt-5">
         <div class="row w-100 m-0 p-0 mt-5">
             <div class="col-3 m-0">
                 <div class="card m-auto w-75 mt-5 bg-secondary text-light">
@@ -37,7 +37,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-secondary text-light" id="icon-usuario"><i class="fas fa-user"></i></span>
                                 </div>
-                                <asp:TextBox ID="txtUsuario" runat="server" type="text" class="form-control is-invalid" placeholder="Usuario..." aria-label="Usuario" aria-describedby="icon-usuario" required></asp:TextBox>
+                                <asp:TextBox ID="txtUsuario" runat="server" type="text" class="form-control" placeholder="Usuario..." aria-label="Usuario" aria-describedby="icon-usuario" required></asp:TextBox>
                             </div>
                             <div class="invalid-feedback">
                                 Porfavor llene este campo para iniciar sesion
@@ -50,7 +50,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-secondary text-light" id="icon-contraseña"><i class="fas fa-key"></i></span>
                                 </div>
-                                <asp:TextBox ID="txtContrasena" runat="server" type="password" class="form-control is-invalid" placeholder="Contraseña..." aria-label="Contraseña" aria-describedby="icon-contraseña" required></asp:TextBox>
+                                <asp:TextBox ID="txtContrasena" runat="server" type="password" class="form-control" placeholder="Contraseña..." aria-label="Contraseña" aria-describedby="icon-contraseña" required></asp:TextBox>
                             </div>
                             <div class="invalid-feedback">
                                 Porfavor llene este campo para iniciar sesion

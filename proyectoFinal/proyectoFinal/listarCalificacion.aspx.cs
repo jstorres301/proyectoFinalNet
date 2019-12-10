@@ -39,15 +39,13 @@ namespace proyectoFinal
             calificacion registrarCalificacionDTO = new calificacion();
             
             
-            registrarCalificacionDTO.calificacion1 = txtcalificacion.Text;
-            registrarCalificacionDTO.id_cita = int.Parse(txtid_cita.Text);
-            registrarCalificacionDTO.usuario_cedula = (long) Session["cedulaLogin"];
+            registrarCalificacionDTO.calificacion1 = int.Parse(txtcalificacion.Text);
             calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
 
             cita_medica citaMedicaDTO = new cita_medica();
             ClsCitaMedica citaMedicaDAO = new ClsCitaMedica();
-            citaMedicaDTO.id_cita = int.Parse(txtid_cita.Text);
-            citaMedicaDTO.calificacion = registrarCalificacionDTO.id_calificacion;
+            citaMedicaDTO.id_cita_medica = int.Parse(txtid_cita.Text);
+            citaMedicaDTO.id_calificacion = registrarCalificacionDTO.id_calificacion;
             citaMedicaDAO.actualizar(citaMedicaDTO);
 
         }

@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="col-8">
-            <asp:GridView ID="glvCentrosMedicos" runat="server" AutoGenerateColumns="False" CssClass="w-100 mt-5" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="glvCentrosMedicos" runat="server" AutoGenerateColumns="False" CssClass="w-100 mt-5" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="glvCentrosMedicos_RowCommand">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="id_centro_medico" HeaderText="Id Centro Medico" />

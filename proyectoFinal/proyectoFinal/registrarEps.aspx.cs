@@ -27,15 +27,17 @@ namespace proyectoFinal
             registrarEpsDTO.numero_telefono = int.Parse(txtNumeroDeTelefono.Text);
             registrarEpsDTO.direccion = txtDireccion.Text;
             EpsDAO.registrarEps(registrarEpsDTO);
-
+            
             registrarUsuarioDTO.nombres = txtNombreEps.Text;
             registrarUsuarioDTO.primer_apellido = txtNombreEps.Text;
             registrarUsuarioDTO.segundo_apellido = txtNombreEps.Text;
             registrarUsuarioDTO.rol = "Eps";
             registrarUsuarioDTO.numero_cedula = long.Parse(txtCedula.Text);
             registrarUsuarioDTO.nombre_usuario = txtNombreUsuario.Text;
+            registrarUsuarioDTO.contrasena = txtContraseña.Text;
             registrarUsuarioDTO.nit_eps = txtNit.Text;
             usuarioDAO.registrarUsuario(registrarUsuarioDTO);
+            Response.Redirect("index.aspx", false);
         }
     }
 }

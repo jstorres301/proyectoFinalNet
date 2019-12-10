@@ -41,7 +41,7 @@ namespace Logica
 
             try
             {
-                var consulta = (from cita in db.cita_medica where cita.id_cita == cm.id_cita select cita).FirstOrDefault();
+                var consulta = (from cita in db.cita_medica where cita.id_cita_medica == cm.id_cita_medica select cita).FirstOrDefault();
                 consulta.calificacion = cm.calificacion;
                 db.SubmitChanges();
                 mensaje = "Se ha actualizado correctamente";

@@ -11,6 +11,7 @@
 <body class="w-100 h-100 m-0 p-0 bg-transparent font-italic">
     <form id="frmRegistrarEps" runat="server" class="row w-100 h-100 m-0 p-0">
         <div class="col-4">
+            <asp:Label ID="Label1" runat="server" Text="lblMensajeq1"></asp:Label>
         </div>
         <div class="col-4 was-validated mt-5">
             <div class="card">
@@ -104,6 +105,7 @@
             </div>
         </div>
         <div class="col-4">
+            <asp:Label ID="Label2" runat="server" Text="lblMensajeq2"></asp:Label>
         </div>
 
     </form>
