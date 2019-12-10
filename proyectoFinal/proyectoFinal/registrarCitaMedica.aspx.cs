@@ -20,9 +20,8 @@ namespace proyectoFinal
             ClsCitaMedica citaMedicaDAO = new ClsCitaMedica();
             cita_medica registrarcitaMedicaDTO = new cita_medica();
             string mensaje;
-            registrarcitaMedicaDTO.id_cita = 1;
             registrarcitaMedicaDTO.fecha_hora = DateTime.Parse(txtFecha_hora.Text);
-            registrarcitaMedicaDTO.centro_medico = int.Parse(ddlCentro.SelectedValue);
+            registrarcitaMedicaDTO.id_centro_medico = int.Parse(ddlCentro.SelectedValue);
             registrarcitaMedicaDTO.usuario_cedula = long.Parse(txtUsuario_Cedula.Text);
             
             mensaje = citaMedicaDAO.registrarCitaMedica(registrarcitaMedicaDTO);

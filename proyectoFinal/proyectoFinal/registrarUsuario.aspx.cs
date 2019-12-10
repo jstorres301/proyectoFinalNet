@@ -25,8 +25,9 @@ namespace proyectoFinal
             usuarioDto.primer_apellido = txtPrimerApellido.Text;
             usuarioDto.segundo_apellido = txtSegundoApellido.Text ;
             usuarioDto.nombre_usuario = txtNombreUsuario.Text;
-            usuarioDto.rol = ddlEps.SelectedValue;
+            usuarioDto.rol = ddlRol.SelectedValue;
             usuarioDto.contrasena = txtContraseña.Text;
+            usuarioDto.nit_eps = ddlEps.SelectedValue;
             mensaje = usuarioDao.registrarUsuario(usuarioDto);
         }
     }

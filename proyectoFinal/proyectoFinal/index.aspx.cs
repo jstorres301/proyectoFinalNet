@@ -82,5 +82,10 @@ namespace proyectoFinal
                 // Aqui va un mensaje al usuario que no se loguea
             }
         }
+
+        protected void btnRegistrarseEps_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("registrarEps.aspx",false);
+        }
     }
 }

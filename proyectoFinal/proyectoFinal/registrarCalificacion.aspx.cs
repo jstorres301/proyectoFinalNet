@@ -18,12 +18,8 @@ namespace proyectoFinal
         {
             ClsCalificacion calificacionDAO = new ClsCalificacion();
             calificacion registrarCalificacionDTO = new calificacion();
-            string mensaje;
-            registrarCalificacionDTO.id_calificacion = 1;
-            registrarCalificacionDTO.calificacion1 = txtcalificacion.Text;
-            registrarCalificacionDTO.id_cita = int.Parse(txtid_cita.Text);
-             mensaje = calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
-            btnRegistrar.Text = mensaje;
+            registrarCalificacionDTO.calificacion1 = int.Parse(txtcalificacion.Text);
+            calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
         }
     }
 }

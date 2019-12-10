@@ -18,7 +18,7 @@ namespace Logica
             foreach (var item in consultaUsuario)
             {
                 usuarioLogin.nombres = item.nombres;
-                usuarioLogin.eps_id_eps = item.eps_id_eps;
+                usuarioLogin.nit_eps = item.nit_eps;
                 usuarioLogin.numero_cedula = item.numero_cedula;
                 usuarioLogin.primer_apellido = item.primer_apellido;
                 usuarioLogin.segundo_apellido = item.segundo_apellido;
