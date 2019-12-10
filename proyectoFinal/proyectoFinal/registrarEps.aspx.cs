@@ -19,13 +19,23 @@ namespace proyectoFinal
         {
             ClsEps EpsDAO = new ClsEps();
             eps registrarEpsDTO = new eps();
-            string mensaje;
+            ClsUsuario usuarioDAO = new ClsUsuario();
+            usuario registrarUsuarioDTO = new usuario();
+
             registrarEpsDTO.nit = txtNit.Text;
-            registrarEpsDTO.nombre_eps = TxtNombreEps.Text;
-            registrarEpsDTO.numero_telefono = int.Parse(TxtNumeroDeTelefono.Text);
-            registrarEpsDTO.direccion = TxtDireccion.Text;
-            mensaje = EpsDAO.registrarEps(registrarEpsDTO);
-            btnRegistrar.Text = mensaje;
+            registrarEpsDTO.nombre_eps = txtNombreEps.Text;
+            registrarEpsDTO.numero_telefono = int.Parse(txtNumeroDeTelefono.Text);
+            registrarEpsDTO.direccion = txtDireccion.Text;
+            EpsDAO.registrarEps(registrarEpsDTO);
+
+            registrarUsuarioDTO.nombres = txtNombreEps.Text;
+            registrarUsuarioDTO.primer_apellido = txtNombreEps.Text;
+            registrarUsuarioDTO.segundo_apellido = txtNombreEps.Text;
+            registrarUsuarioDTO.rol = "Eps";
+            registrarUsuarioDTO.numero_cedula = long.Parse(txtCedula.Text);
+            registrarUsuarioDTO.nombre_usuario = txtNombreUsuario.Text;
+            registrarUsuarioDTO.nit_eps = txtNit.Text;
+            usuarioDAO.registrarUsuario(registrarUsuarioDTO);
         }
     }
 }

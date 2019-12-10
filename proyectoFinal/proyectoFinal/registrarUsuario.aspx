@@ -13,15 +13,15 @@
         <div class="row w-100 m-0 p-0 mt-5">
             <div class="col-4 m-0">
             </div>
-            <div class="col-4 m-0 mt-5">
+            <div class="col-4 m-0 mt-3">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center">Registrate</h2>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <h4>
-                                <asp:Label ID="lblCedula" runat="server" Text="Numero de cedula:"></asp:Label></h4>
+                            <h5>
+                                <asp:Label ID="lblCedula" runat="server" Text="Numero de cedula:"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-cedula" title="Número de Cedula"><i class="far fa-address-card"></i></span>
@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="form-group">
-                            <asp:Label ID="lblNombres" runat="server" Text="Nombres:"></asp:Label>
+                            <h5><asp:Label ID="lblNombres" runat="server" Text="Nombres:"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-nombres" title="Nombres"><i class="fas fa-indent"></i></span>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <asp:Label ID="lblPrimerApellido" runat="server" Text="Primer Apellido:"></asp:Label>
+                            <h5><asp:Label ID="lblPrimerApellido" runat="server" Text="Primer Apellido:"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-papellido" title="Primer Apellido"><i class="fas fa-indent"></i></span>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido:"></asp:Label>
+                            <h5><asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido:"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-sapellido" title="Segundo Apellido"><i class="fas fa-indent"></i></span>
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="form-group">
-                            <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de usuario"></asp:Label>
+                            <h5><asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de usuario"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-Nusuario" title="Nombre de Usuario"><i class="fas fa-user-astronaut"></i></span>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label>
+                            <h5><asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-contraseña" title="Nombre de Usuario"><i class="fas fa-key"></i></span>
@@ -79,18 +79,29 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label ID="lblRol" runat="server" Text="Rol"></asp:Label>
+                            <h5><asp:Label ID="lblRol" runat="server" Text="Rol"></asp:Label></h5>
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="icono-rol" title="Rol"><i class="fas fa-dice-d20"></i></span>
                                 </div>
-                                <asp:DropDownList ID="ddlEps" runat="server" type="text" class="custom-select" aria-label="Escribe tu rol..." aria-describedby="icono-rol" required>
+                                <asp:DropDownList ID="ddlRol" runat="server" type="text" class="custom-select" aria-label="Escribe tu rol..." aria-describedby="icono-rol" required>
                                     <asp:ListItem Value="Usuario">Usuario</asp:ListItem>
-                                    <asp:ListItem Value="Eps">Eps</asp:ListItem>
                                     <asp:ListItem Value="administrador">Administrador</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <h5><asp:Label ID="lblEps" runat="server" Text="Eps"></asp:Label></h5>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="icono-eps" title="Rol"><i class="fas fa-clinic-medical"></i></span>
+                                </div>
+                                <asp:DropDownList ID="ddlEps" runat="server" type="text" class="custom-select" aria-label="Selecciona tu eps..." aria-describedby="icono-eps" required DataSourceID="LinqDataSource1" DataTextField="nombre_eps" DataValueField="nit"></asp:DropDownList>
+                                <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Logica.OrmHospitalesDataContext" EntityTypeName="" Select="new (nombre_eps, nit)" TableName="eps">
+                                </asp:LinqDataSource>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-footer justify-content-center">
                         <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="col-4 btn btn-block btn-success" OnClick="btnRegistrar_Click" />

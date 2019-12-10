@@ -14,6 +14,15 @@
     <form id="form1" runat="server" class="was-validated mt-5">
         <div class="row w-100 m-0 p-0 mt-5">
             <div class="col-3 m-0">
+                <div class="card m-auto w-75 mt-5 bg-secondary text-light">
+                    <div class="card-header">
+                        <h2 class="text-center">Eres una nueva Eps ? Registrate</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-justify">Si te registrar podras usar este maravilloso sistema en el cual tus clientes podran agendar citas medicas mas rapido.</h4>
+                        <asp:Button ID="btnRegistrarseEps" CssClass="btn btn-primary btn-lg m-auto" runat="server" Text="Registrarse" OnClick="btnRegistrarseEps_Click" />
+                    </div>
+                </div>
             </div>
             <div class="col-6 m-0 mt-5">
                 <div class="card text-dark bg-light m-auto mt-5 w-75">
@@ -54,7 +63,15 @@
                 </div>
             </div>
             <div class="col-3 m-0">
-                <asp:Button ID="btnRegistrarse" CssClass="btn btn-primary btn-lg m-auto" runat="server" OnClick="Button1_Click" Text="Registrarse" />
+                <div class="card m-auto w-75 mt-5 bg-secondary text-light">
+                    <div class="card-header">
+                        <h2 class="text-center">Eres un nuevo Usuario ? Registrate</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-justify">Si te registrar podras usar este servicio el cual es mas facil y comodo agendar citas medicas en tus centros medicos con el que tengas convenio.</h4>
+                        <asp:Button ID="btnRegistrarse" CssClass="btn btn-primary btn-lg m-auto" runat="server" OnClick="Button1_Click" Text="Registrarse" />
+                    </div>
+                </div>
             </div>
         </div>
     </form>
