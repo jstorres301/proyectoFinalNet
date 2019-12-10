@@ -19,7 +19,6 @@ namespace proyectoFinal
             ClsCalificacion calificacionDAO = new ClsCalificacion();
             calificacion registrarCalificacionDTO = new calificacion();
             registrarCalificacionDTO.calificacion1 = int.Parse(txtcalificacion.Text);
-            
             calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
         }
     }

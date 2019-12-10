@@ -35,5 +35,22 @@ namespace Logica
             gtvListarCitas.DataBind();
         }
 
+        public string actualizar(cita_medica cm)
+        {
+            string mensaje;
+
+            try
+            {
+                var consulta = (from cita in db.cita_medica where cita.id_cita == cm.id_cita select cita).FirstOrDefault();
+                consulta.calificacion = cm.calificacion;
+                db.SubmitChanges();
+                mensaje = "Se ha actualizado correctamente";
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al actualizar" + ex.Message;
+            }
+            return mensaje;
+        }
     }
 }

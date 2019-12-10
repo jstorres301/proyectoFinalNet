@@ -47,7 +47,7 @@ namespace Logica
         public string actualizarUsuario(usuario usu)
         {
             string mensaje;
-            usuario usuarioActualizar = new usuario();
+            
             try
             {
                 var consulta =( from usua in db.usuario where usua.numero_cedula == usu.numero_cedula select usua).FirstOrDefault();

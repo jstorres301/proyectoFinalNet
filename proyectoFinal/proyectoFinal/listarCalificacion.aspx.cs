@@ -18,5 +18,43 @@ namespace proyectoFinal
                 citaMedicaDAO.consultar(ref gtvListarCitas);
             }
         }
+
+        protected void gtvListarCitas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void gtvListarCitas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow filaSeleccionada = (GridViewRow)((Control)e.CommandSource).NamingContainer;
+            int rowIndex = filaSeleccionada.RowIndex;
+            txtid_cita.Text = gtvListarCitas.Rows[rowIndex].Cells[0].Text;
+        }
+
+        protected void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            ClsCalificacion calificacionDAO = new ClsCalificacion();
+            
+            
+            calificacion registrarCalificacionDTO = new calificacion();
+            
+            
+            registrarCalificacionDTO.calificacion1 = txtcalificacion.Text;
+            registrarCalificacionDTO.id_cita = int.Parse(txtid_cita.Text);
+            registrarCalificacionDTO.usuario_cedula = (long) Session["cedulaLogin"];
+            calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
+
+            cita_medica citaMedicaDTO = new cita_medica();
+            ClsCitaMedica citaMedicaDAO = new ClsCitaMedica();
+            citaMedicaDTO.id_cita = int.Parse(txtid_cita.Text);
+            citaMedicaDTO.calificacion = registrarCalificacionDTO.id_calificacion;
+            citaMedicaDAO.actualizar(citaMedicaDTO);
+
+        }
+
+        protected void txtcalificacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
