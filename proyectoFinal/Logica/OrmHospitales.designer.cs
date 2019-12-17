@@ -36,6 +36,9 @@ namespace Logica
     partial void Insertcentro_medico(centro_medico instance);
     partial void Updatecentro_medico(centro_medico instance);
     partial void Deletecentro_medico(centro_medico instance);
+    partial void Insertcentromedico_has_especialidad(centromedico_has_especialidad instance);
+    partial void Updatecentromedico_has_especialidad(centromedico_has_especialidad instance);
+    partial void Deletecentromedico_has_especialidad(centromedico_has_especialidad instance);
     partial void Insertcita_medica(cita_medica instance);
     partial void Updatecita_medica(cita_medica instance);
     partial void Deletecita_medica(cita_medica instance);
@@ -45,6 +48,9 @@ namespace Logica
     partial void Inserteps(eps instance);
     partial void Updateeps(eps instance);
     partial void Deleteeps(eps instance);
+    partial void Inserteps_has_centromedico(eps_has_centromedico instance);
+    partial void Updateeps_has_centromedico(eps_has_centromedico instance);
+    partial void Deleteeps_has_centromedico(eps_has_centromedico instance);
     partial void Insertespecialidad(especialidad instance);
     partial void Updateespecialidad(especialidad instance);
     partial void Deleteespecialidad(especialidad instance);
@@ -337,9 +343,13 @@ namespace Logica
 		
 		private string _foto;
 		
+		private EntitySet<centromedico_has_especialidad> _centromedico_has_especialidad;
+		
 		private EntitySet<cita_medica> _cita_medica;
 		
 		private EntitySet<consulta> _consulta;
+		
+		private EntitySet<eps_has_centromedico> _eps_has_centromedico;
 		
 		private EntitySet<telefono> _telefono;
 		
@@ -363,8 +373,10 @@ namespace Logica
 		
 		public centro_medico()
 		{
+			this._centromedico_has_especialidad = new EntitySet<centromedico_has_especialidad>(new Action<centromedico_has_especialidad>(this.attach_centromedico_has_especialidad), new Action<centromedico_has_especialidad>(this.detach_centromedico_has_especialidad));
 			this._cita_medica = new EntitySet<cita_medica>(new Action<cita_medica>(this.attach_cita_medica), new Action<cita_medica>(this.detach_cita_medica));
 			this._consulta = new EntitySet<consulta>(new Action<consulta>(this.attach_consulta), new Action<consulta>(this.detach_consulta));
+			this._eps_has_centromedico = new EntitySet<eps_has_centromedico>(new Action<eps_has_centromedico>(this.attach_eps_has_centromedico), new Action<eps_has_centromedico>(this.detach_eps_has_centromedico));
 			this._telefono = new EntitySet<telefono>(new Action<telefono>(this.attach_telefono), new Action<telefono>(this.detach_telefono));
 			OnCreated();
 		}
@@ -489,6 +501,19 @@ namespace Logica
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_centromedico_has_especialidad", Storage="_centromedico_has_especialidad", ThisKey="id_centro_medico", OtherKey="id_centro_medico")]
+		public EntitySet<centromedico_has_especialidad> centromedico_has_especialidad
+		{
+			get
+			{
+				return this._centromedico_has_especialidad;
+			}
+			set
+			{
+				this._centromedico_has_especialidad.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_cita_medica", Storage="_cita_medica", ThisKey="id_centro_medico", OtherKey="id_centro_medico")]
 		public EntitySet<cita_medica> cita_medica
 		{
@@ -512,6 +537,19 @@ namespace Logica
 			set
 			{
 				this._consulta.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_eps_has_centromedico", Storage="_eps_has_centromedico", ThisKey="id_centro_medico", OtherKey="id_centro_medico")]
+		public EntitySet<eps_has_centromedico> eps_has_centromedico
+		{
+			get
+			{
+				return this._eps_has_centromedico;
+			}
+			set
+			{
+				this._eps_has_centromedico.Assign(value);
 			}
 		}
 		
@@ -548,6 +586,18 @@ namespace Logica
 			}
 		}
 		
+		private void attach_centromedico_has_especialidad(centromedico_has_especialidad entity)
+		{
+			this.SendPropertyChanging();
+			entity.centro_medico = this;
+		}
+		
+		private void detach_centromedico_has_especialidad(centromedico_has_especialidad entity)
+		{
+			this.SendPropertyChanging();
+			entity.centro_medico = null;
+		}
+		
 		private void attach_cita_medica(cita_medica entity)
 		{
 			this.SendPropertyChanging();
@@ -572,6 +622,18 @@ namespace Logica
 			entity.centro_medico = null;
 		}
 		
+		private void attach_eps_has_centromedico(eps_has_centromedico entity)
+		{
+			this.SendPropertyChanging();
+			entity.centro_medico = this;
+		}
+		
+		private void detach_eps_has_centromedico(eps_has_centromedico entity)
+		{
+			this.SendPropertyChanging();
+			entity.centro_medico = null;
+		}
+		
 		private void attach_telefono(telefono entity)
 		{
 			this.SendPropertyChanging();
@@ -586,18 +648,37 @@ namespace Logica
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.centromedico_has_especialidad")]
-	public partial class centromedico_has_especialidad
+	public partial class centromedico_has_especialidad : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id_centro_medico;
 		
 		private int _id_especialidad;
 		
+		private EntityRef<centro_medico> _centro_medico;
+		
+		private EntityRef<especialidad> _especialidad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_centro_medicoChanging(int value);
+    partial void Onid_centro_medicoChanged();
+    partial void Onid_especialidadChanging(int value);
+    partial void Onid_especialidadChanged();
+    #endregion
+		
 		public centromedico_has_especialidad()
 		{
+			this._centro_medico = default(EntityRef<centro_medico>);
+			this._especialidad = default(EntityRef<especialidad>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_centro_medico", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_centro_medico", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id_centro_medico
 		{
 			get
@@ -608,12 +689,20 @@ namespace Logica
 			{
 				if ((this._id_centro_medico != value))
 				{
+					if (this._centro_medico.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_centro_medicoChanging(value);
+					this.SendPropertyChanging();
 					this._id_centro_medico = value;
+					this.SendPropertyChanged("id_centro_medico");
+					this.Onid_centro_medicoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_especialidad", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_especialidad", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id_especialidad
 		{
 			get
@@ -624,8 +713,104 @@ namespace Logica
 			{
 				if ((this._id_especialidad != value))
 				{
+					if (this._especialidad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_especialidadChanging(value);
+					this.SendPropertyChanging();
 					this._id_especialidad = value;
+					this.SendPropertyChanged("id_especialidad");
+					this.Onid_especialidadChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_centromedico_has_especialidad", Storage="_centro_medico", ThisKey="id_centro_medico", OtherKey="id_centro_medico", IsForeignKey=true)]
+		public centro_medico centro_medico
+		{
+			get
+			{
+				return this._centro_medico.Entity;
+			}
+			set
+			{
+				centro_medico previousValue = this._centro_medico.Entity;
+				if (((previousValue != value) 
+							|| (this._centro_medico.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._centro_medico.Entity = null;
+						previousValue.centromedico_has_especialidad.Remove(this);
+					}
+					this._centro_medico.Entity = value;
+					if ((value != null))
+					{
+						value.centromedico_has_especialidad.Add(this);
+						this._id_centro_medico = value.id_centro_medico;
+					}
+					else
+					{
+						this._id_centro_medico = default(int);
+					}
+					this.SendPropertyChanged("centro_medico");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="especialidad_centromedico_has_especialidad", Storage="_especialidad", ThisKey="id_especialidad", OtherKey="id_especialidad", IsForeignKey=true)]
+		public especialidad especialidad
+		{
+			get
+			{
+				return this._especialidad.Entity;
+			}
+			set
+			{
+				especialidad previousValue = this._especialidad.Entity;
+				if (((previousValue != value) 
+							|| (this._especialidad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._especialidad.Entity = null;
+						previousValue.centromedico_has_especialidad.Remove(this);
+					}
+					this._especialidad.Entity = value;
+					if ((value != null))
+					{
+						value.centromedico_has_especialidad.Add(this);
+						this._id_especialidad = value.id_especialidad;
+					}
+					else
+					{
+						this._id_especialidad = default(int);
+					}
+					this.SendPropertyChanged("especialidad");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1141,6 +1326,8 @@ namespace Logica
 		
 		private string _direccion;
 		
+		private EntitySet<eps_has_centromedico> _eps_has_centromedico;
+		
 		private EntitySet<usuario> _usuario;
 		
     #region Definiciones de métodos de extensibilidad
@@ -1159,6 +1346,7 @@ namespace Logica
 		
 		public eps()
 		{
+			this._eps_has_centromedico = new EntitySet<eps_has_centromedico>(new Action<eps_has_centromedico>(this.attach_eps_has_centromedico), new Action<eps_has_centromedico>(this.detach_eps_has_centromedico));
 			this._usuario = new EntitySet<usuario>(new Action<usuario>(this.attach_usuario), new Action<usuario>(this.detach_usuario));
 			OnCreated();
 		}
@@ -1243,6 +1431,19 @@ namespace Logica
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eps_eps_has_centromedico", Storage="_eps_has_centromedico", ThisKey="nit", OtherKey="nit_eps")]
+		public EntitySet<eps_has_centromedico> eps_has_centromedico
+		{
+			get
+			{
+				return this._eps_has_centromedico;
+			}
+			set
+			{
+				this._eps_has_centromedico.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eps_usuario", Storage="_usuario", ThisKey="nit", OtherKey="nit_eps")]
 		public EntitySet<usuario> usuario
 		{
@@ -1276,6 +1477,18 @@ namespace Logica
 			}
 		}
 		
+		private void attach_eps_has_centromedico(eps_has_centromedico entity)
+		{
+			this.SendPropertyChanging();
+			entity.eps = this;
+		}
+		
+		private void detach_eps_has_centromedico(eps_has_centromedico entity)
+		{
+			this.SendPropertyChanging();
+			entity.eps = null;
+		}
+		
 		private void attach_usuario(usuario entity)
 		{
 			this.SendPropertyChanging();
@@ -1290,18 +1503,37 @@ namespace Logica
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.eps_has_centromedico")]
-	public partial class eps_has_centromedico
+	public partial class eps_has_centromedico : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _nit_eps;
 		
 		private int _id_centro_medico;
 		
+		private EntityRef<centro_medico> _centro_medico;
+		
+		private EntityRef<eps> _eps;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onnit_epsChanging(string value);
+    partial void Onnit_epsChanged();
+    partial void Onid_centro_medicoChanging(int value);
+    partial void Onid_centro_medicoChanged();
+    #endregion
+		
 		public eps_has_centromedico()
 		{
+			this._centro_medico = default(EntityRef<centro_medico>);
+			this._eps = default(EntityRef<eps>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nit_eps", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nit_eps", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string nit_eps
 		{
 			get
@@ -1312,12 +1544,20 @@ namespace Logica
 			{
 				if ((this._nit_eps != value))
 				{
+					if (this._eps.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onnit_epsChanging(value);
+					this.SendPropertyChanging();
 					this._nit_eps = value;
+					this.SendPropertyChanged("nit_eps");
+					this.Onnit_epsChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_centro_medico", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_centro_medico", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id_centro_medico
 		{
 			get
@@ -1328,8 +1568,104 @@ namespace Logica
 			{
 				if ((this._id_centro_medico != value))
 				{
+					if (this._centro_medico.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_centro_medicoChanging(value);
+					this.SendPropertyChanging();
 					this._id_centro_medico = value;
+					this.SendPropertyChanged("id_centro_medico");
+					this.Onid_centro_medicoChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="centro_medico_eps_has_centromedico", Storage="_centro_medico", ThisKey="id_centro_medico", OtherKey="id_centro_medico", IsForeignKey=true)]
+		public centro_medico centro_medico
+		{
+			get
+			{
+				return this._centro_medico.Entity;
+			}
+			set
+			{
+				centro_medico previousValue = this._centro_medico.Entity;
+				if (((previousValue != value) 
+							|| (this._centro_medico.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._centro_medico.Entity = null;
+						previousValue.eps_has_centromedico.Remove(this);
+					}
+					this._centro_medico.Entity = value;
+					if ((value != null))
+					{
+						value.eps_has_centromedico.Add(this);
+						this._id_centro_medico = value.id_centro_medico;
+					}
+					else
+					{
+						this._id_centro_medico = default(int);
+					}
+					this.SendPropertyChanged("centro_medico");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eps_eps_has_centromedico", Storage="_eps", ThisKey="nit_eps", OtherKey="nit", IsForeignKey=true)]
+		public eps eps
+		{
+			get
+			{
+				return this._eps.Entity;
+			}
+			set
+			{
+				eps previousValue = this._eps.Entity;
+				if (((previousValue != value) 
+							|| (this._eps.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eps.Entity = null;
+						previousValue.eps_has_centromedico.Remove(this);
+					}
+					this._eps.Entity = value;
+					if ((value != null))
+					{
+						value.eps_has_centromedico.Add(this);
+						this._nit_eps = value.nit;
+					}
+					else
+					{
+						this._nit_eps = default(string);
+					}
+					this.SendPropertyChanged("eps");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1344,6 +1680,8 @@ namespace Logica
 		
 		private string _nombre_especialidad;
 		
+		private EntitySet<centromedico_has_especialidad> _centromedico_has_especialidad;
+		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1356,6 +1694,7 @@ namespace Logica
 		
 		public especialidad()
 		{
+			this._centromedico_has_especialidad = new EntitySet<centromedico_has_especialidad>(new Action<centromedico_has_especialidad>(this.attach_centromedico_has_especialidad), new Action<centromedico_has_especialidad>(this.detach_centromedico_has_especialidad));
 			OnCreated();
 		}
 		
@@ -1399,6 +1738,19 @@ namespace Logica
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="especialidad_centromedico_has_especialidad", Storage="_centromedico_has_especialidad", ThisKey="id_especialidad", OtherKey="id_especialidad")]
+		public EntitySet<centromedico_has_especialidad> centromedico_has_especialidad
+		{
+			get
+			{
+				return this._centromedico_has_especialidad;
+			}
+			set
+			{
+				this._centromedico_has_especialidad.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1417,6 +1769,18 @@ namespace Logica
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_centromedico_has_especialidad(centromedico_has_especialidad entity)
+		{
+			this.SendPropertyChanging();
+			entity.especialidad = this;
+		}
+		
+		private void detach_centromedico_has_especialidad(centromedico_has_especialidad entity)
+		{
+			this.SendPropertyChanging();
+			entity.especialidad = null;
 		}
 	}
 	

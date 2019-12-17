@@ -25,8 +25,8 @@
   </Table>
   <Table Name="dbo.centromedico_has_especialidad" Member="centromedico_has_especialidad">
     <Type Name="centromedico_has_especialidad">
-      <Column Name="id_centro_medico" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="id_especialidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_centro_medico" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_especialidad" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="centro_medico_centromedico_has_especialidad" Member="centro_medico" ThisKey="id_centro_medico" OtherKey="id_centro_medico" Type="centro_medico" IsForeignKey="true" />
       <Association Name="especialidad_centromedico_has_especialidad" Member="especialidad" ThisKey="id_especialidad" OtherKey="id_especialidad" Type="especialidad" IsForeignKey="true" />
     </Type>
@@ -65,8 +65,8 @@
   </Table>
   <Table Name="dbo.eps_has_centromedico" Member="eps_has_centromedico">
     <Type Name="eps_has_centromedico">
-      <Column Name="nit_eps" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="id_centro_medico" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nit_eps" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_centro_medico" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="centro_medico_eps_has_centromedico" Member="centro_medico" ThisKey="id_centro_medico" OtherKey="id_centro_medico" Type="centro_medico" IsForeignKey="true" />
       <Association Name="eps_eps_has_centromedico" Member="eps" ThisKey="nit_eps" OtherKey="nit" Type="eps" IsForeignKey="true" />
     </Type>
