@@ -10,9 +10,17 @@ namespace Logica
     {
         OrmHospitalesDataContext db = new OrmHospitalesDataContext();
 
-        public void afiliar(eps_has_centromedico epc)
+        public string afiliar(eps_has_centromedico epc)
         {
-            db.eps_has_centromedico.InsertOnSubmit(epc);
+            try
+            {
+                db.eps_has_centromedico.InsertOnSubmit(epc);
+                return "Se ha hecho bien el registro";
+            }
+            catch (Exception ex)
+            {
+                return ""+ex;
+            }
         }
     }
 }

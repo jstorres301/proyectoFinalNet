@@ -37,7 +37,7 @@
       <Column Name="fecha_hora" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="id_centro_medico" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="usuario_cedula" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="id_calificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_calificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="calificacion_cita_medica" Member="calificacion" ThisKey="id_calificacion" OtherKey="id_calificacion" Type="calificacion" IsForeignKey="true" />
       <Association Name="centro_medico_cita_medica" Member="centro_medico" ThisKey="id_centro_medico" OtherKey="id_centro_medico" Type="centro_medico" IsForeignKey="true" />
       <Association Name="usuario_cita_medica" Member="usuario" ThisKey="usuario_cedula" OtherKey="numero_cedula" Type="usuario" IsForeignKey="true" />
