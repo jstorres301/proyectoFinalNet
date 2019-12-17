@@ -37,6 +37,7 @@ namespace proyectoFinal
             ClsCentroMedico centroMedicoDao = new ClsCentroMedico();
             string nivel = ddlNecesidad.Text;
             centroMedicoDao.consultarPorFiltro(ref grvTablaCentroMedico, nivel);
+
         }
     }
 }
