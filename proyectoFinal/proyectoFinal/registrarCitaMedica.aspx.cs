@@ -12,7 +12,7 @@ namespace proyectoFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtUsuario_Cedula.Text = Session["cedulaLogin"].ToString();
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
@@ -23,9 +23,7 @@ namespace proyectoFinal
             registrarcitaMedicaDTO.fecha_hora = DateTime.Parse(txtFecha_hora.Text);
             registrarcitaMedicaDTO.id_centro_medico = int.Parse(ddlCentro.SelectedValue);
             registrarcitaMedicaDTO.usuario_cedula = long.Parse(txtUsuario_Cedula.Text);
-            
             mensaje = citaMedicaDAO.registrarCitaMedica(registrarcitaMedicaDTO);
-            btnRegistrar.Text = mensaje;
         }
     }
 }

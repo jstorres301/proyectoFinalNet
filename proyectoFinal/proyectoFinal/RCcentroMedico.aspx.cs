@@ -44,13 +44,11 @@ namespace proyectoFinal
         {
             GridViewRow filaNueva = (GridViewRow)((Control)e.CommandSource).NamingContainer;
             int rowIndex = filaNueva.RowIndex;
-            string eps = (string)Session["eps"];
-            int centro = int.Parse(glvCentrosMedicos.Rows[rowIndex].Cells[0].Text);
             eps_has_centromedico epc = new eps_has_centromedico();
-            epc.id_centro_medico = centro;
-            epc.nit_eps = eps;
+            epc.id_centro_medico = int.Parse(glvCentrosMedicos.Rows[rowIndex].Cells[0].Text);
+            epc.nit_eps = (string)Session["eps"];
             ClsEpsHasCentroMedico dao = new ClsEpsHasCentroMedico();
-            dao.afiliar(epc);
+            lblMensaje.Text = dao.afiliar(epc);
         }
     }
 }

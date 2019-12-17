@@ -829,7 +829,7 @@ namespace Logica
 		
 		private long _usuario_cedula;
 		
-		private int _id_calificacion;
+		private System.Nullable<int> _id_calificacion;
 		
 		private EntityRef<calificacion> _calificacion;
 		
@@ -849,7 +849,7 @@ namespace Logica
     partial void Onid_centro_medicoChanged();
     partial void Onusuario_cedulaChanging(long value);
     partial void Onusuario_cedulaChanged();
-    partial void Onid_calificacionChanging(int value);
+    partial void Onid_calificacionChanging(System.Nullable<int> value);
     partial void Onid_calificacionChanged();
     #endregion
 		
@@ -949,8 +949,8 @@ namespace Logica
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_calificacion", DbType="Int NOT NULL")]
-		public int id_calificacion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_calificacion", DbType="Int")]
+		public System.Nullable<int> id_calificacion
 		{
 			get
 			{
@@ -1000,7 +1000,7 @@ namespace Logica
 					}
 					else
 					{
-						this._id_calificacion = default(int);
+						this._id_calificacion = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("calificacion");
 				}

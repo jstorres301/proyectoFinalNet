@@ -51,13 +51,13 @@ namespace proyectoFinal
         protected global::System.Web.UI.WebControls.DropDownList ddlCentro;
 
         /// <summary>
-        /// Control centroMedicoLista.
+        /// Control LinqDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource centroMedicoLista;
+        protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource1;
 
         /// <summary>
         /// Control lblUsuario_Cedula.

@@ -23,5 +23,20 @@ namespace proyectoFinal
             string nivel = ddlNecesidad.Text;
             centroMedicoDao.consultarPorFiltro(ref grvTablaCentroMedico,nivel);
         }
+
+
+        protected void ddlNecesidad_TextChanged(object sender, EventArgs e)
+        {
+            ClsCentroMedico centroMedicoDao = new ClsCentroMedico();
+            string nivel = ddlNecesidad.Text;
+            centroMedicoDao.consultarPorFiltro(ref grvTablaCentroMedico, nivel);
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ClsCentroMedico centroMedicoDao = new ClsCentroMedico();
+            string nivel = ddlNecesidad.Text;
+            centroMedicoDao.consultarPorFiltro(ref grvTablaCentroMedico, nivel);
+        }
     }
 }
