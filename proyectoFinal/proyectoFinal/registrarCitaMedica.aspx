@@ -2,6 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="contenidoMenuUsuario" runat="server">
     <div>
+        <br />
         <asp:Label ID="lblFecha_hora" runat="server" Text="fecha/hora"></asp:Label>
         <br />
         <asp:TextBox ID="txtFecha_hora" runat="server" type="datetime-local"></asp:TextBox>
