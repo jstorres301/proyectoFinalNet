@@ -15,7 +15,7 @@ namespace proyectoFinal
             if (!IsPostBack)
             {
                 ClsCitaMedica citaMedicaDAO = new ClsCitaMedica();
-                citaMedicaDAO.consultar(ref gtvListarCitas);
+                citaMedicaDAO.consultar(ref gtvListarCitas,(long)Session["cedulaLogin"]);
             }
         }
 
@@ -35,11 +35,13 @@ namespace proyectoFinal
         {
             ClsCalificacion calificacionDAO = new ClsCalificacion();
             
-            
             calificacion registrarCalificacionDTO = new calificacion();
             
-            
-            registrarCalificacionDTO.calificacion1 = int.Parse(txtcalificacion.Text);
+            registrarCalificacionDTO.calificacion1 = int.Parse(ddlCalificacion.Text);
+            if (txtobservaciones.Text != null || txtobservaciones.Text != "")
+            {
+                registrarCalificacionDTO.observacion = txtobservaciones.Text;
+            }
             calificacionDAO.registrarCalificacion(registrarCalificacionDTO);
 
             cita_medica citaMedicaDTO = new cita_medica();
@@ -47,12 +49,9 @@ namespace proyectoFinal
             citaMedicaDTO.id_cita_medica = int.Parse(txtid_cita.Text);
             citaMedicaDTO.id_calificacion = registrarCalificacionDTO.id_calificacion;
             citaMedicaDAO.actualizar(citaMedicaDTO);
-
-        }
-
-        protected void txtcalificacion_TextChanged(object sender, EventArgs e)
-        {
-
+            txtid_cita.Text = "";
+            txtobservaciones.Text = "";
+            citaMedicaDAO.consultar(ref gtvListarCitas, (long)Session["cedulaLogin"]);
         }
     }
 }

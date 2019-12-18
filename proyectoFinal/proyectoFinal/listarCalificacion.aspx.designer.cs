@@ -60,13 +60,13 @@ namespace proyectoFinal
         protected global::System.Web.UI.WebControls.Label lblcalificacion;
 
         /// <summary>
-        /// Control txtcalificacion.
+        /// Control ddlCalificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcalificacion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCalificacion;
 
         /// <summary>
         /// Control lblobservaciones.

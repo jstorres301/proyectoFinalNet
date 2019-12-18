@@ -15,11 +15,25 @@ namespace Logica
             try
             {
                 db.eps_has_centromedico.InsertOnSubmit(epc);
-                return "Se ha hecho bien el registro";
+                db.SubmitChanges();
+                return "Se ha realizado el convenio";
             }
             catch (Exception ex)
             {
-                return ""+ex;
+                return "Ya te encuentras Afiliado a este centro medico";
+            }
+        }
+
+        public bool consulta(eps_has_centromedico epc)
+        {
+            var consulta = (from ep in db.eps_has_centromedico where ep.id_centro_medico == epc.id_centro_medico & ep.nit_eps == epc.nit_eps select ep).FirstOrDefault();
+            if (consulta == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

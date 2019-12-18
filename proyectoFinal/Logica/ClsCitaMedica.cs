@@ -16,7 +16,7 @@ namespace Logica
             string mensaje;
             try
             {
-                db.cita_medica .InsertOnSubmit(ct);
+                db.cita_medica.InsertOnSubmit(ct);
                 db.SubmitChanges();
                 mensaje = "Se ha registrado correctamente";
             }
@@ -27,10 +27,9 @@ namespace Logica
             return mensaje;
         }
 
-        public void consultar(ref GridView gtvListarCitas)
+        public void consultar(ref GridView gtvListarCitas,long usu)
         {
-
-            var consulta = (from ctm in db.cita_medica select ctm).ToList();
+            var consulta = (from ctm in db.cita_medica where ctm.usuario_cedula == usu & ctm.id_calificacion == null select ctm).ToList();
             gtvListarCitas.DataSource = consulta;
             gtvListarCitas.DataBind();
         }
@@ -38,11 +37,10 @@ namespace Logica
         public string actualizar(cita_medica cm)
         {
             string mensaje;
-
             try
             {
                 var consulta = (from cita in db.cita_medica where cita.id_cita_medica == cm.id_cita_medica select cita).FirstOrDefault();
-                consulta.calificacion = cm.calificacion;
+                consulta.id_calificacion = cm.id_calificacion;
                 db.SubmitChanges();
                 mensaje = "Se ha actualizado correctamente";
             }
@@ -51,6 +49,19 @@ namespace Logica
                 mensaje = "Error al actualizar" + ex.Message;
             }
             return mensaje;
+        }
+
+        public bool consulta(long usu)
+        {
+            var consulta = (from ctm in db.cita_medica where ctm.usuario_cedula == usu & ctm.id_calificacion == null select ctm).FirstOrDefault();
+            if (consulta == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

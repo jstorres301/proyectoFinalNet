@@ -42,13 +42,21 @@ namespace proyectoFinal
 
         protected void glvCentrosMedicos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            ClsEpsHasCentroMedico dao = new ClsEpsHasCentroMedico();
             GridViewRow filaNueva = (GridViewRow)((Control)e.CommandSource).NamingContainer;
-            int rowIndex = filaNueva.RowIndex;
             eps_has_centromedico epc = new eps_has_centromedico();
+            int rowIndex = filaNueva.RowIndex;
             epc.id_centro_medico = int.Parse(glvCentrosMedicos.Rows[rowIndex].Cells[0].Text);
             epc.nit_eps = (string)Session["eps"];
-            ClsEpsHasCentroMedico dao = new ClsEpsHasCentroMedico();
-            lblMensaje.Text = dao.afiliar(epc);
+            bool hacer = dao.consulta(epc);
+            if (hacer == true)
+            {
+                lblMensaje.Text = dao.afiliar(epc);
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Ya te encuentras afiliado');</script>");
+            }
         }
     }
 }

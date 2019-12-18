@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblUsuario_Cedula" runat="server" Text="Cedula Del Usuario"></asp:Label>
-                        <asp:TextBox ID="txtUsuario_Cedula" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario_Cedula" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="card-footer row w-100 m-0">

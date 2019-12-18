@@ -18,12 +18,20 @@ namespace proyectoFinal
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             ClsCitaMedica citaMedicaDAO = new ClsCitaMedica();
-            cita_medica registrarcitaMedicaDTO = new cita_medica();
-            string mensaje;
-            registrarcitaMedicaDTO.fecha_hora = DateTime.Parse(txtFecha_hora.Text);
-            registrarcitaMedicaDTO.id_centro_medico = int.Parse(ddlCentro.SelectedValue);
-            registrarcitaMedicaDTO.usuario_cedula = long.Parse(txtUsuario_Cedula.Text);
-            mensaje = citaMedicaDAO.registrarCitaMedica(registrarcitaMedicaDTO);
+            bool hacer = citaMedicaDAO.consulta((long)Session["cedulaLogin"]);
+            if (hacer == true)
+            {
+                cita_medica registrarcitaMedicaDTO = new cita_medica();
+                string mensaje;
+                registrarcitaMedicaDTO.fecha_hora = DateTime.Parse(txtFecha_hora.Text);
+                registrarcitaMedicaDTO.id_centro_medico = int.Parse(ddlCentro.SelectedValue);
+                registrarcitaMedicaDTO.usuario_cedula = long.Parse(txtUsuario_Cedula.Text);
+                mensaje = citaMedicaDAO.registrarCitaMedica(registrarcitaMedicaDTO);
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('No se puede Registrar tu cita');</script>");
+            }
         }
     }
 }
