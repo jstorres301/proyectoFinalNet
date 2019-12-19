@@ -48,6 +48,7 @@ namespace proyectoFinal
             int rowIndex = filaNueva.RowIndex;
             epc.id_centro_medico = int.Parse(glvCentrosMedicos.Rows[rowIndex].Cells[0].Text);
             epc.nit_eps = (string)Session["eps"];
+
             bool hacer = dao.consulta(epc);
             if (hacer == true)
             {

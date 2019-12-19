@@ -124,4 +124,11 @@
       <Column Name="nit_eps" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_grafico_torta" Method="sp_grafico_torta">
+    <Parameter Name="centro_medico" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_grafico_tortaResult">
+      <Column Name="usuario_numero_cedula" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="conteo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Logica;
 namespace proyectoFinal
 {
     public partial class graficaTorta : System.Web.UI.Page
@@ -16,11 +16,11 @@ namespace proyectoFinal
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //ClsGrafico grafico = new ClsGraficos();
-            //chtGrafico.DataSource = grafico.llenarGrafico(Calendar1.SelectedDate, Calendar2.SelectedDate);
-            //chtGrafico.Series["Series1"].XValueMember = "Mes";
-            //chtGrafico.Series["Series1"].YValueMembers = "Cantidad";
-            //chtGrafico.Visible = true;
+            ClsGraficos grafico = new ClsGraficos();
+            Chart1.DataSource = grafico.llenarGraficoRedondo(int.Parse(ddlCentroMedico.SelectedValue));
+            Chart1.Series["Series1"].XValueMember = "Usuario";
+            Chart1.Series["Series1"].YValueMembers = "Cantidad";
+            Chart1.Visible = true;
         }
     }
 }

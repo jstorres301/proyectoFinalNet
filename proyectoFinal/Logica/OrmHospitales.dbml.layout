@@ -62,49 +62,49 @@
         <elementListCompartment Id="8d2d6989-ef1f-4b14-abb9-f7169b43ae02" absoluteBounds="5.1400000000000006, 12.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 5.375); (1.75 : 4.94399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 5.375); (1.75 : 4.94399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/centro_medico/centro_medico_centromedico_has_especialidad" />
       <nodes>
         <classShapeMoniker Id="a6be7ca9-1f57-46e4-90dd-3de502e82462" />
         <classShapeMoniker Id="d173b276-575c-4196-a263-b867e6c624c9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.125 : 2.5112939453125); (5.125 : 3.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.125 : 2.5112939453125); (5.125 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/calificacion/calificacion_cita_medica" />
       <nodes>
         <classShapeMoniker Id="5d00969b-1a62-4598-b129-0f8d240608b5" />
         <classShapeMoniker Id="b9fc3cfa-a8e7-417a-a748-104063e2964c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.86339634440104); (5.046873125 : 5.86339634440104); (5.046873125 : 5.14589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.86339634440104); (5.046873125 : 5.86339634440104); (5.046873125 : 5.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/centro_medico/centro_medico_cita_medica" />
       <nodes>
         <classShapeMoniker Id="a6be7ca9-1f57-46e4-90dd-3de502e82462" />
         <classShapeMoniker Id="b9fc3cfa-a8e7-417a-a748-104063e2964c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.41429768880208); (6.02603979166667 : 6.41429768880208 : JumpStart); (6.19270645833333 : 6.41429768880208 : JumpEnd); (7.125 : 6.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.41429768880208); (6.02603979166667 : 6.41429768880208 : JumpStart); (6.19270645833333 : 6.41429768880208 : JumpEnd); (7.125 : 6.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/centro_medico/centro_medico_consulta" />
       <nodes>
         <classShapeMoniker Id="a6be7ca9-1f57-46e4-90dd-3de502e82462" />
         <classShapeMoniker Id="482bd460-ab22-4986-99bb-23ea09409f47" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.625 : 7.3381982421875); (1.625 : 9.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.625 : 7.3381982421875); (1.625 : 9.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/centro_medico/centro_medico_eps_has_centromedico" />
       <nodes>
         <classShapeMoniker Id="a6be7ca9-1f57-46e4-90dd-3de502e82462" />
         <classShapeMoniker Id="849a5e1f-654a-4b79-bc8d-637ae6d57f04" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 12.625); (1.75 : 10.4439925130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 12.625); (1.75 : 10.4439925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/eps/eps_eps_has_centromedico" />
       <nodes>
         <classShapeMoniker Id="2e7c1cc6-43ca-4317-937c-0fd98b77613b" />
         <classShapeMoniker Id="849a5e1f-654a-4b79-bc8d-637ae6d57f04" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.8125 : 2.81899251302083); (1.8125 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.8125 : 2.81899251302083); (1.8125 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/especialidad/especialidad_centromedico_has_especialidad" />
       <nodes>
         <classShapeMoniker Id="71263467-5295-4497-8042-05365c03a17c" />
@@ -118,21 +118,21 @@
         <classShapeMoniker Id="0d80ab9a-839d-4fad-b130-714da8f125aa" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.109373125 : 12.125); (6.109373125 : 5.14589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.109373125 : 12.125); (6.109373125 : 5.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/usuario/usuario_cita_medica" />
       <nodes>
         <classShapeMoniker Id="2e416e50-5b5e-4c48-b092-c02b3cb0e700" />
         <classShapeMoniker Id="b9fc3cfa-a8e7-417a-a748-104063e2964c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.59374625 : 12.125); (5.59374625 : 6.84019903320312); (6.02603979166667 : 6.84019903320312 : JumpStart); (6.19270645833333 : 6.84019903320312 : JumpEnd); (7.125 : 6.84019903320312)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.59374625 : 12.125); (5.59374625 : 6.84019903320312); (6.02603979166667 : 6.84019903320312 : JumpStart); (6.19270645833333 : 6.84019903320312 : JumpEnd); (7.125 : 6.84019903320312)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/usuario/usuario_consulta" />
       <nodes>
         <classShapeMoniker Id="2e416e50-5b5e-4c48-b092-c02b3cb0e700" />
         <classShapeMoniker Id="482bd460-ab22-4986-99bb-23ea09409f47" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3 : 13.4142976888021); (5.125 : 13.4142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3 : 13.4142976888021); (5.125 : 13.4142976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/OrmHospitalesDataContext/eps/eps_usuario" />
       <nodes>
         <classShapeMoniker Id="2e7c1cc6-43ca-4317-937c-0fd98b77613b" />

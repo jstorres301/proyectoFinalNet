@@ -27,5 +27,22 @@ namespace Logica
             return ds;
         }
 
+        public DataSet llenarGraficoRedondo(int centroMedico)
+        {
+            DataSet ds = new DataSet();
+            ds.Tables.Add("grafica");
+            ds.Tables["grafica"].Columns.Add("Usuario");
+            ds.Tables["grafica"].Columns.Add("Cantidad");
+            var consulta = db.sp_grafico_torta(centroMedico);
+            foreach (var item in consulta)
+            {
+                DataRow fila = ds.Tables["grafica"].NewRow();
+                fila[0] = item.usuario_numero_cedula;
+                fila[1] = item.conteo;
+                ds.Tables["grafica"].Rows.Add(fila);
+            }
+            return ds;
+        }
+
     }
 }

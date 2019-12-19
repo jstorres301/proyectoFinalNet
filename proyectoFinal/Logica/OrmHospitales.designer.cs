@@ -185,6 +185,13 @@ namespace Logica
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombre_usuario, contrasena);
 			return ((ISingleResult<sp_loginResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_grafico_torta")]
+		public ISingleResult<sp_grafico_tortaResult> sp_grafico_torta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> centro_medico)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), centro_medico);
+			return ((ISingleResult<sp_grafico_tortaResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.calificacion")]
@@ -2471,6 +2478,50 @@ namespace Logica
 				if ((this._nit_eps != value))
 				{
 					this._nit_eps = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_grafico_tortaResult
+	{
+		
+		private long _usuario_numero_cedula;
+		
+		private System.Nullable<int> _conteo;
+		
+		public sp_grafico_tortaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usuario_numero_cedula", DbType="BigInt NOT NULL")]
+		public long usuario_numero_cedula
+		{
+			get
+			{
+				return this._usuario_numero_cedula;
+			}
+			set
+			{
+				if ((this._usuario_numero_cedula != value))
+				{
+					this._usuario_numero_cedula = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_conteo", DbType="Int")]
+		public System.Nullable<int> conteo
+		{
+			get
+			{
+				return this._conteo;
+			}
+			set
+			{
+				if ((this._conteo != value))
+				{
+					this._conteo = value;
 				}
 			}
 		}
